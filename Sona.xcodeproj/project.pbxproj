@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19C46B0424806427002537D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0324806427002537D5 /* AppDelegate.swift */; };
+		19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0524806427002537D5 /* SceneDelegate.swift */; };
+		19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0724806427002537D5 /* HomeScreenViewController.swift */; };
+		19C46B0B24806427002537D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C46B0924806427002537D5 /* Main.storyboard */; };
+		19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0C24806427002537D5 /* Sona.xcdatamodeld */; };
+		19C46B1024806428002537D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C46B0F24806428002537D5 /* Assets.xcassets */; };
+		19C46B1324806428002537D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C46B1124806428002537D5 /* LaunchScreen.storyboard */; };
+		19C46B1E24806428002537D5 /* SonaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B1D24806428002537D5 /* SonaTests.swift */; };
+		19C46B2924806428002537D5 /* SonaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B2824806428002537D5 /* SonaUITests.swift */; };
+		19C46B3A24806606002537D5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B3924806606002537D5 /* Spinner.swift */; };
+		19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */; };
+		19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19C46B1A24806428002537D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19C46AF824806427002537D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19C46AFF24806427002537D5;
+			remoteInfo = Sona;
+		};
+		19C46B2524806428002537D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19C46AF824806427002537D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19C46AFF24806427002537D5;
+			remoteInfo = Sona;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19C46B0024806427002537D5 /* Sona.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sona.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C46B0324806427002537D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		19C46B0524806427002537D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
+		19C46B0724806427002537D5 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		19C46B0A24806427002537D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		19C46B0D24806427002537D5 /* Sona.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sona.xcdatamodel; sourceTree = "<group>"; };
+		19C46B0F24806428002537D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19C46B1224806428002537D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		19C46B1424806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19C46B1924806428002537D5 /* SonaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C46B1D24806428002537D5 /* SonaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonaTests.swift; sourceTree = "<group>"; };
+		19C46B1F24806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19C46B2424806428002537D5 /* SonaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C46B2824806428002537D5 /* SonaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonaUITests.swift; sourceTree = "<group>"; };
+		19C46B2A24806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19C46B3924806606002537D5 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Spinner.swift; path = "../../../FCS_Mock_Season_Creator/FCS Mock Season Creator/Resources/Spinner.swift"; sourceTree = "<group>"; };
+		19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchViewController.swift; sourceTree = "<group>"; };
+		19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19C46AFD24806427002537D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B1624806428002537D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B2124806428002537D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C46AF724806427002537D5 = {
+			isa = PBXGroup;
+			children = (
+				19C46B0224806427002537D5 /* Sona */,
+				19C46B1C24806428002537D5 /* SonaTests */,
+				19C46B2724806428002537D5 /* SonaUITests */,
+				19C46B0124806427002537D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		19C46B0124806427002537D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B0024806427002537D5 /* Sona.app */,
+				19C46B1924806428002537D5 /* SonaTests.xctest */,
+				19C46B2424806428002537D5 /* SonaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19C46B0224806427002537D5 /* Sona */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B37248065B1002537D5 /* NetworkLayer */,
+				19C46B38248065CD002537D5 /* Resources */,
+				19C46B0924806427002537D5 /* Main.storyboard */,
+				19C46B0F24806428002537D5 /* Assets.xcassets */,
+				19C46B1124806428002537D5 /* LaunchScreen.storyboard */,
+				19C46B1424806428002537D5 /* Info.plist */,
+				19C46B0C24806427002537D5 /* Sona.xcdatamodeld */,
+			);
+			path = Sona;
+			sourceTree = "<group>";
+		};
+		19C46B1C24806428002537D5 /* SonaTests */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B1D24806428002537D5 /* SonaTests.swift */,
+				19C46B1F24806428002537D5 /* Info.plist */,
+			);
+			path = SonaTests;
+			sourceTree = "<group>";
+		};
+		19C46B2724806428002537D5 /* SonaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B2824806428002537D5 /* SonaUITests.swift */,
+				19C46B2A24806428002537D5 /* Info.plist */,
+			);
+			path = SonaUITests;
+			sourceTree = "<group>";
+		};
+		19C46B37248065B1002537D5 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		19C46B38248065CD002537D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B0324806427002537D5 /* AppDelegate.swift */,
+				19C46B0524806427002537D5 /* SceneDelegate.swift */,
+				19C46B3924806606002537D5 /* Spinner.swift */,
+				19C46B4124809559002537D5 /* HomeScreen */,
+				19C46B3C2480661A002537D5 /* Model */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		19C46B3C2480661A002537D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19C46B4124809559002537D5 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B0724806427002537D5 /* HomeScreenViewController.swift */,
+				19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */,
+				19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19C46AFF24806427002537D5 /* Sona */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C46B2D24806428002537D5 /* Build configuration list for PBXNativeTarget "Sona" */;
+			buildPhases = (
+				19C46AFC24806427002537D5 /* Sources */,
+				19C46AFD24806427002537D5 /* Frameworks */,
+				19C46AFE24806427002537D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sona;
+			productName = Sona;
+			productReference = 19C46B0024806427002537D5 /* Sona.app */;
+			productType = "com.apple.product-type.application";
+		};
+		19C46B1824806428002537D5 /* SonaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C46B3024806428002537D5 /* Build configuration list for PBXNativeTarget "SonaTests" */;
+			buildPhases = (
+				19C46B1524806428002537D5 /* Sources */,
+				19C46B1624806428002537D5 /* Frameworks */,
+				19C46B1724806428002537D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19C46B1B24806428002537D5 /* PBXTargetDependency */,
+			);
+			name = SonaTests;
+			productName = SonaTests;
+			productReference = 19C46B1924806428002537D5 /* SonaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		19C46B2324806428002537D5 /* SonaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C46B3324806428002537D5 /* Build configuration list for PBXNativeTarget "SonaUITests" */;
+			buildPhases = (
+				19C46B2024806428002537D5 /* Sources */,
+				19C46B2124806428002537D5 /* Frameworks */,
+				19C46B2224806428002537D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19C46B2624806428002537D5 /* PBXTargetDependency */,
+			);
+			name = SonaUITests;
+			productName = SonaUITests;
+			productReference = 19C46B2424806428002537D5 /* SonaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19C46AF824806427002537D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Tyler Cheek";
+				TargetAttributes = {
+					19C46AFF24806427002537D5 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					19C46B1824806428002537D5 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 19C46AFF24806427002537D5;
+					};
+					19C46B2324806428002537D5 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 19C46AFF24806427002537D5;
+					};
+				};
+			};
+			buildConfigurationList = 19C46AFB24806427002537D5 /* Build configuration list for PBXProject "Sona" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19C46AF724806427002537D5;
+			productRefGroup = 19C46B0124806427002537D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19C46AFF24806427002537D5 /* Sona */,
+				19C46B1824806428002537D5 /* SonaTests */,
+				19C46B2324806428002537D5 /* SonaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19C46AFE24806427002537D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C46B1324806428002537D5 /* LaunchScreen.storyboard in Resources */,
+				19C46B1024806428002537D5 /* Assets.xcassets in Resources */,
+				19C46B0B24806427002537D5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B1724806428002537D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B2224806428002537D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19C46AFC24806427002537D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
+				19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */,
+				19C46B0424806427002537D5 /* AppDelegate.swift in Sources */,
+				19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */,
+				19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */,
+				19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */,
+				19C46B3A24806606002537D5 /* Spinner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B1524806428002537D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C46B1E24806428002537D5 /* SonaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C46B2024806428002537D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C46B2924806428002537D5 /* SonaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19C46B1B24806428002537D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19C46AFF24806427002537D5 /* Sona */;
+			targetProxy = 19C46B1A24806428002537D5 /* PBXContainerItemProxy */;
+		};
+		19C46B2624806428002537D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19C46AFF24806427002537D5 /* Sona */;
+			targetProxy = 19C46B2524806428002537D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		19C46B0924806427002537D5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19C46B0A24806427002537D5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		19C46B1124806428002537D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19C46B1224806428002537D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19C46B2B24806428002537D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		19C46B2C24806428002537D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19C46B2E24806428002537D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Sona/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.Sona;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19C46B2F24806428002537D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Sona/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.Sona;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		19C46B3124806428002537D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SonaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.SonaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sona.app/Sona";
+			};
+			name = Debug;
+		};
+		19C46B3224806428002537D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SonaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.SonaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sona.app/Sona";
+			};
+			name = Release;
+		};
+		19C46B3424806428002537D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SonaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.SonaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sona;
+			};
+			name = Debug;
+		};
+		19C46B3524806428002537D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SonaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.audire.SonaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sona;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19C46AFB24806427002537D5 /* Build configuration list for PBXProject "Sona" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C46B2B24806428002537D5 /* Debug */,
+				19C46B2C24806428002537D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C46B2D24806428002537D5 /* Build configuration list for PBXNativeTarget "Sona" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C46B2E24806428002537D5 /* Debug */,
+				19C46B2F24806428002537D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C46B3024806428002537D5 /* Build configuration list for PBXNativeTarget "SonaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C46B3124806428002537D5 /* Debug */,
+				19C46B3224806428002537D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C46B3324806428002537D5 /* Build configuration list for PBXNativeTarget "SonaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C46B3424806428002537D5 /* Debug */,
+				19C46B3524806428002537D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19C46B0C24806427002537D5 /* Sona.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19C46B0D24806427002537D5 /* Sona.xcdatamodel */,
+			);
+			currentVersion = 19C46B0D24806427002537D5 /* Sona.xcdatamodel */;
+			path = Sona.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 19C46AF824806427002537D5 /* Project object */;
+}
