@@ -10,6 +10,18 @@ import UIKit
 
 class BroadcastSearchResultsTableViewCell : UITableViewCell {
     
+    @IBOutlet weak var songTitleLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
+    var broadcast: Broadcast?
+    
+    public func setup(broadcast: Broadcast) {
+        
+        self.songTitleLabel.text = broadcast.song.title
+        self.artistLabel.text = broadcast.song.artist
+        self.usernameLabel.text = broadcast.user.username
+        
+    }
     
 }
