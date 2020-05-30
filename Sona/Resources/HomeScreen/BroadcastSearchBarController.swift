@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BroadcastSearchBarController : UISearchController {
+class BroadcastSearchController : UISearchController {
     
     
     

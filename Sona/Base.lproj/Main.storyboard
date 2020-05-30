@@ -30,27 +30,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQd-Bh-kyw">
-                                <rect key="frame" x="20" y="108" width="374" height="754"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-cy-0wU">
+                                <rect key="frame" x="152" y="629" width="110" height="110"/>
+                                <state key="normal" image="HomeScreenBroadcastSearchIcon"/>
                                 <connections>
-                                    <segue destination="YKv-Hk-SHs" kind="embed" id="lFl-xd-7nm"/>
+                                    <segue destination="prR-aM-c4w" kind="presentation" id="anL-Gh-yFW"/>
                                 </connections>
-                            </containerView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jQd-Bh-kyw" firstAttribute="top" secondItem="k0Y-jI-Xgb" secondAttribute="bottom" constant="20" id="EWT-sE-9Ns"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jQd-Bh-kyw" secondAttribute="trailing" constant="20" id="RrZ-4D-ubE"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Td9-ua-26f"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bYd-QB-ic3"/>
-                            <constraint firstItem="jQd-Bh-kyw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gAU-iE-eJb"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iAj-nG-m4P"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="j2c-Fd-Nny"/>
-                            <constraint firstItem="jQd-Bh-kyw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rVK-TJ-5W6"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vml-kY-xjm"/>
+                            <constraint firstItem="9MA-cy-0wU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="EPP-P8-cyc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9MA-cy-0wU" secondAttribute="trailing" constant="152" id="Ppd-ok-6GT"/>
+                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qvd-H1-lRy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9MA-cy-0wU" secondAttribute="bottom" constant="123" id="YDX-OL-OND"/>
+                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nGA-Id-9Zh"/>
+                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ohA-dc-c5z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lcC-WW-Qqb"/>
                     <connections>
                         <outlet property="isPublicSwitch" destination="KUX-O4-SyY" id="CoV-4Z-M1I"/>
                         <outlet property="navigationBar" destination="k0Y-jI-Xgb" id="cU4-Oj-GTm"/>
@@ -58,72 +57,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+            <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
         </scene>
         <!--Broadcast Search View Controller-->
-        <scene sceneID="e63-49-mYw">
+        <scene sceneID="4ZH-kP-fHo">
             <objects>
-                <viewController id="YKv-Hk-SHs" customClass="BroadcastSearchViewController" customModule="Sona" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Die-kf-FTD">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="754"/>
+                <viewController id="prR-aM-c4w" customClass="BroadcastSearchViewController" customModule="Sona" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2MP-2X-CPj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-ui-ovF">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                            <searchBar contentMode="redraw" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="c5o-bS-fMl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="prR-aM-c4w" id="Q00-Uz-ElN"/>
+                                </connections>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S5q-M8-Fx1">
-                                <rect key="frame" x="16" y="64" width="342" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-uA-Zhp">
+                                <rect key="frame" x="50" y="64" width="314" height="32"/>
                                 <segments>
                                     <segment title="Everyone"/>
                                     <segment title="Friends"/>
                                 </segments>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJo-DJ-hP4">
-                                <rect key="frame" x="16" y="103" width="342" height="651"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iK-kY-mBy">
+                                <rect key="frame" x="0.0" y="103" width="414" height="739"/>
                                 <connections>
-                                    <segue destination="XcX-jD-Jft" kind="embed" id="8tv-gM-jf2"/>
+                                    <segue destination="k41-TJ-oGf" kind="embed" id="FGz-J0-GPu"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="S5q-M8-Fx1" firstAttribute="trailing" secondItem="Die-kf-FTD" secondAttribute="trailingMargin" id="0wH-JO-T5j"/>
-                            <constraint firstAttribute="trailing" secondItem="uZs-ui-ovF" secondAttribute="trailing" id="5V2-KM-7gI"/>
-                            <constraint firstItem="S5q-M8-Fx1" firstAttribute="top" secondItem="uZs-ui-ovF" secondAttribute="bottom" constant="8" id="97X-zg-s0z"/>
-                            <constraint firstItem="WJo-DJ-hP4" firstAttribute="bottom" secondItem="Die-kf-FTD" secondAttribute="bottomMargin" id="L33-KI-O3y"/>
-                            <constraint firstItem="S5q-M8-Fx1" firstAttribute="top" secondItem="uZs-ui-ovF" secondAttribute="bottom" constant="8" id="RST-5c-x3p"/>
-                            <constraint firstItem="WJo-DJ-hP4" firstAttribute="trailing" secondItem="Die-kf-FTD" secondAttribute="trailingMargin" id="ZkI-CK-Dxv"/>
-                            <constraint firstItem="WJo-DJ-hP4" firstAttribute="top" secondItem="S5q-M8-Fx1" secondAttribute="bottom" constant="8" id="dFv-GX-FCb"/>
-                            <constraint firstItem="WJo-DJ-hP4" firstAttribute="leading" secondItem="Die-kf-FTD" secondAttribute="leadingMargin" id="lKq-b8-NSo"/>
-                            <constraint firstItem="S5q-M8-Fx1" firstAttribute="leading" secondItem="Die-kf-FTD" secondAttribute="leadingMargin" id="oII-i5-Kg2"/>
-                            <constraint firstItem="uZs-ui-ovF" firstAttribute="top" secondItem="Die-kf-FTD" secondAttribute="top" id="vPa-w8-GWM"/>
-                            <constraint firstItem="uZs-ui-ovF" firstAttribute="leading" secondItem="Die-kf-FTD" secondAttribute="leading" id="wdP-3w-zMS"/>
+                            <constraint firstAttribute="bottom" secondItem="4iK-kY-mBy" secondAttribute="bottom" id="0T6-cB-iyc"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="top" secondItem="W2B-5y-YGK" secondAttribute="top" id="40W-qW-eOa"/>
+                            <constraint firstItem="sl1-uA-Zhp" firstAttribute="leading" secondItem="W2B-5y-YGK" secondAttribute="leading" constant="50" id="4qp-tf-GrZ"/>
+                            <constraint firstAttribute="trailing" secondItem="c5o-bS-fMl" secondAttribute="trailing" id="9jO-4y-dtr"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="leading" secondItem="2MP-2X-CPj" secondAttribute="leading" id="Ffn-03-qGV"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="leading" secondItem="W2B-5y-YGK" secondAttribute="leading" id="JCh-ST-JQB"/>
+                            <constraint firstAttribute="trailing" secondItem="c5o-bS-fMl" secondAttribute="trailing" id="SL8-Gc-qpw"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="leading" secondItem="2MP-2X-CPj" secondAttribute="leading" id="SzR-lr-fs5"/>
+                            <constraint firstItem="sl1-uA-Zhp" firstAttribute="top" secondItem="c5o-bS-fMl" secondAttribute="bottom" constant="8" id="d41-SZ-qWn"/>
+                            <constraint firstItem="4iK-kY-mBy" firstAttribute="leading" secondItem="c5o-bS-fMl" secondAttribute="leading" id="d4h-G7-hTo"/>
+                            <constraint firstItem="W2B-5y-YGK" firstAttribute="trailing" secondItem="sl1-uA-Zhp" secondAttribute="trailing" constant="50" id="eRk-2K-6vW"/>
+                            <constraint firstItem="4iK-kY-mBy" firstAttribute="trailing" secondItem="c5o-bS-fMl" secondAttribute="trailing" id="f0y-Ht-Ad5"/>
+                            <constraint firstAttribute="trailing" secondItem="c5o-bS-fMl" secondAttribute="trailing" id="f3R-gZ-s8D"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="leading" secondItem="2MP-2X-CPj" secondAttribute="leading" id="f4Y-3Z-BEu"/>
+                            <constraint firstItem="c5o-bS-fMl" firstAttribute="trailing" secondItem="W2B-5y-YGK" secondAttribute="trailing" id="js0-MS-eeP"/>
+                            <constraint firstItem="4iK-kY-mBy" firstAttribute="top" secondItem="sl1-uA-Zhp" secondAttribute="bottom" constant="8" id="mNm-nr-Oqf"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="W2B-5y-YGK"/>
                     </view>
                     <connections>
-                        <outlet property="broadcastSearchBar" destination="uZs-ui-ovF" id="iHB-DE-eje"/>
-                        <outlet property="broadcastSearchSegmentedControl" destination="S5q-M8-Fx1" id="vjj-zI-1rs"/>
+                        <outlet property="broadcastSearchBar" destination="c5o-bS-fMl" id="brR-6J-wfp"/>
+                        <outlet property="broadcastSearchSegmentedControl" destination="sl1-uA-Zhp" id="4oT-nj-GWy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oh-wr-CvM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sW-IN-sAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="776.11607142857144"/>
+            <point key="canvasLocation" x="137.68115942028987" y="815.625"/>
         </scene>
         <!--Broadcast Search Results Table View Controller-->
-        <scene sceneID="mEW-M8-vSD">
+        <scene sceneID="MPv-hH-THb">
             <objects>
-                <tableViewController id="XcX-jD-Jft" customClass="BroadcastSearchResultsTableViewController" customModule="Sona" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b12-fz-f0J">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="651"/>
+                <tableViewController id="k41-TJ-oGf" customClass="BroadcastSearchResultsTableViewController" customModule="Sona" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zya-wC-T6J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BroadcastSearchResultsTableViewCellReuseIdentifier" rowHeight="90" id="uZv-OA-B5Z" customClass="BroadcastSearchResultsTableViewCell" customModule="Sona">
-                                <rect key="frame" x="0.0" y="28" width="342" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZv-OA-B5Z" id="iUr-rK-945">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Disappear Completely" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFJ-yB-mVn">
@@ -164,14 +172,17 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="XcX-jD-Jft" id="FrF-yg-HvJ"/>
-                            <outlet property="delegate" destination="XcX-jD-Jft" id="Bu4-nR-9nH"/>
+                            <outlet property="dataSource" destination="k41-TJ-oGf" id="Bqq-30-0kJ"/>
+                            <outlet property="delegate" destination="k41-TJ-oGf" id="T7i-iW-Mqe"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vaK-dd-h3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5w-Ke-oOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="1344"/>
+            <point key="canvasLocation" x="138" y="1478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeScreenBroadcastSearchIcon" width="64" height="64"/>
+    </resources>
 </document>

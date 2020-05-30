@@ -15,6 +15,7 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // soft blue
         navigationBar.barTintColor = UIColor(red: 0.578, green: 0.871, blue: 1.0, alpha: 1.0)
         isPublicSwitch.isOn = false
     }
