@@ -30,20 +30,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-cy-0wU">
+                            <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-cy-0wU">
                                 <rect key="frame" x="152" y="629" width="110" height="110"/>
-                                <state key="normal" image="HomeScreenBroadcastSearchIcon"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="KWZ-uY-vx3"/>
+                                    <constraint firstAttribute="width" constant="110" id="jIy-Id-NxE"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="HomeScreenBroadcastSearchIcon"/>
                                 <connections>
-                                    <segue destination="prR-aM-c4w" kind="presentation" id="anL-Gh-yFW"/>
+                                    <segue destination="prR-aM-c4w" kind="presentation" identifier="BroadcastSearchViewSegue" id="anL-Gh-yFW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="9MA-cy-0wU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="EPP-P8-cyc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9MA-cy-0wU" secondAttribute="trailing" constant="152" id="Ppd-ok-6GT"/>
+                            <constraint firstItem="9MA-cy-0wU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="0aC-eG-deg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9MA-cy-0wU" secondAttribute="bottom" constant="123" id="47v-72-SBS"/>
+                            <constraint firstItem="9MA-cy-0wU" firstAttribute="centerX" secondItem="k0Y-jI-Xgb" secondAttribute="centerX" id="M27-v8-aKd"/>
                             <constraint firstItem="k0Y-jI-Xgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qvd-H1-lRy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9MA-cy-0wU" secondAttribute="bottom" constant="123" id="YDX-OL-OND"/>
                             <constraint firstItem="k0Y-jI-Xgb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nGA-Id-9Zh"/>
                             <constraint firstItem="k0Y-jI-Xgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ohA-dc-c5z"/>
                         </constraints>
@@ -71,7 +75,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="prR-aM-c4w" id="Q00-Uz-ElN"/>
+                                    <outlet property="delegate" destination="prR-aM-c4w" id="hHd-2I-dyC"/>
                                 </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-uA-Zhp">
@@ -84,7 +88,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iK-kY-mBy">
                                 <rect key="frame" x="0.0" y="103" width="414" height="739"/>
                                 <connections>
-                                    <segue destination="k41-TJ-oGf" kind="embed" id="FGz-J0-GPu"/>
+                                    <segue destination="k41-TJ-oGf" kind="embed" identifier="BroadcastSearchResultsTableViewSegue" id="FGz-J0-GPu"/>
                                 </connections>
                             </containerView>
                         </subviews>

@@ -12,9 +12,14 @@ import UIKit
 class BroadcastSearchResultsTableViewDataSource : NSObject, UITableViewDataSource {
     
     var broadcasts = [Broadcast]()
+    var filteredBroadcasts = [Broadcast]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.broadcasts.count
+        if (!filteredBroadcasts.isEmpty) {
+            return self.filteredBroadcasts.count
+        } else {
+            return self.broadcasts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -22,12 +27,14 @@ class BroadcastSearchResultsTableViewDataSource : NSObject, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BroadcastSearchResultsTableViewCellReuseIdentifier", for: indexPath) as? BroadcastSearchResultsTableViewCell else {
             fatalError("The dequeued cell is not an instance of BroadcastSearchResultsTableViewCell.")
         }
-        guard let broadcast = self.broadcasts[safe: indexPath.row] else {
-            fatalError("Could not unwrap broadcast object for indexPath in ConferencesTableViewController.swift")
+        guard let filteredBroadcast = self.filteredBroadcasts[safe: indexPath.row] else {
+            guard let broadcast = self.broadcasts[safe: indexPath.row] else {
+                fatalError("Could not unwrap filteredBroadcast or broadcast object for indexPath in BroadcastSearchResultsTableViewDataSource.swift")
+            }
+            cell.setup(broadcast: broadcast)
+            return cell
         }
-        
-        cell.setup(broadcast: broadcast)
-        
+        cell.setup(broadcast: filteredBroadcast)
         return cell
         
     }
