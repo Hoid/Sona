@@ -27,7 +27,7 @@ class BroadcastSearchFilterHelper {
             let title = broadcast.song.title
             let artist = broadcast.song.artist
             let username = broadcast.user.username
-            return title.contains(searchText) || artist.contains(searchText) || username.contains(searchText)
+            return title.localizedCaseInsensitiveContains(searchText) || artist.localizedCaseInsensitiveContains(searchText) || username.localizedCaseInsensitiveContains(searchText)
         })
         return filteredBroadcasts
         

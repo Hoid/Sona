@@ -24,11 +24,7 @@ class BroadcastSearchResultsTableViewDatasource : NSObject, UITableViewDataSourc
             fatalError("The dequeued cell is not an instance of BroadcastSearchResultsTableViewCell.")
         }
         guard let filteredBroadcast = self.filteredBroadcasts[safe: indexPath.row] else {
-            guard let broadcast = self.broadcasts[safe: indexPath.row] else {
-                fatalError("Could not unwrap filteredBroadcast or broadcast object for indexPath in BroadcastSearchResultsTableViewDataSource.swift")
-            }
-            cell.setup(broadcast: broadcast)
-            return cell
+            fatalError("Could not unwrap filteredBroadcast object for indexPath in BroadcastSearchResultsTableViewDataSource.swift")
         }
         cell.setup(broadcast: filteredBroadcast)
         return cell

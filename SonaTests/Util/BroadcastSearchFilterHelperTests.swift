@@ -57,6 +57,12 @@ class BroadcastSearchFilterHelperTests: XCTestCase {
         let filteredBroadcasts = broadcastSearchFilterHelper.filter(searchText: "ski")
         XCTAssert(filteredBroadcasts.count == 0)
     }
+    
+    func testFilterIsCaseInsensitive() throws {
+        let filteredBroadcasts = broadcastSearchFilterHelper.filter(searchText: "nov")
+        XCTAssert(filteredBroadcasts.count == 1)
+        XCTAssert(filteredBroadcasts[0].song.title == "November Rain")
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

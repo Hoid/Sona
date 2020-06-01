@@ -50,7 +50,9 @@ class BroadcastSearchViewController : UIViewController, UISearchBarDelegate {
         let broadcastSearchFilterHelper = BroadcastSearchFilterHelper(broadcasts: broadcasts)
         
         self.broadcastSearchResultsTableVC?.datasource.filteredBroadcasts = broadcastSearchFilterHelper.filter(searchText: searchText)
+        
         self.broadcastSearchResultsTableVC?.tableView.reloadData()
+        
     }
     
 }
