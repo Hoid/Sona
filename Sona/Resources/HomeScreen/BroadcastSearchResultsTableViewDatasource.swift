@@ -1,5 +1,5 @@
 //
-//  BroadcastSearchResultsTableViewDataSource.swift
+//  BroadcastSearchResultsTableViewDatasource.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 5/29/20.
@@ -9,17 +9,13 @@
 import os.log
 import UIKit
 
-class BroadcastSearchResultsTableViewDataSource : NSObject, UITableViewDataSource {
+class BroadcastSearchResultsTableViewDatasource : NSObject, UITableViewDataSource {
     
     var broadcasts = [Broadcast]()
     var filteredBroadcasts = [Broadcast]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (!filteredBroadcasts.isEmpty) {
-            return self.filteredBroadcasts.count
-        } else {
-            return self.broadcasts.count
-        }
+        return self.filteredBroadcasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

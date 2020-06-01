@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */; };
 		19C46B0424806427002537D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0324806427002537D5 /* AppDelegate.swift */; };
 		19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0524806427002537D5 /* SceneDelegate.swift */; };
 		19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0724806427002537D5 /* HomeScreenViewController.swift */; };
@@ -14,13 +15,13 @@
 		19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0C24806427002537D5 /* Sona.xcdatamodeld */; };
 		19C46B1024806428002537D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C46B0F24806428002537D5 /* Assets.xcassets */; };
 		19C46B1324806428002537D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C46B1124806428002537D5 /* LaunchScreen.storyboard */; };
-		19C46B1E24806428002537D5 /* SonaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B1D24806428002537D5 /* SonaTests.swift */; };
+		19C46B1E24806428002537D5 /* BroadcastSearchFilterHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B1D24806428002537D5 /* BroadcastSearchFilterHelperTests.swift */; };
 		19C46B2924806428002537D5 /* SonaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B2824806428002537D5 /* SonaUITests.swift */; };
 		19C46B3A24806606002537D5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B3924806606002537D5 /* Spinner.swift */; };
 		19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */; };
 		19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */; };
 		19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */; };
-		19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDataSource.swift */; };
+		19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift */; };
 		19C46B4F248169C8002537D5 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4E248169C8002537D5 /* Broadcast.swift */; };
 		19C46B5124816A0A002537D5 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B5024816A0A002537D5 /* Song.swift */; };
 		19C46B5324816AAF002537D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B5224816AAF002537D5 /* User.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchFilterHelper.swift; sourceTree = "<group>"; };
 		19C46B0024806427002537D5 /* Sona.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sona.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C46B0324806427002537D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		19C46B0524806427002537D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		19C46B1224806428002537D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19C46B1424806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C46B1924806428002537D5 /* SonaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19C46B1D24806428002537D5 /* SonaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonaTests.swift; sourceTree = "<group>"; };
+		19C46B1D24806428002537D5 /* BroadcastSearchFilterHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchFilterHelperTests.swift; sourceTree = "<group>"; };
 		19C46B1F24806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C46B2424806428002537D5 /* SonaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C46B2824806428002537D5 /* SonaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonaUITests.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchViewController.swift; sourceTree = "<group>"; };
 		19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewController.swift; sourceTree = "<group>"; };
-		19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewDataSource.swift; sourceTree = "<group>"; };
+		19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewDatasource.swift; sourceTree = "<group>"; };
 		19C46B4E248169C8002537D5 /* Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		19C46B5024816A0A002537D5 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		19C46B5224816AAF002537D5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -94,6 +96,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1946021124847C0A00D8FDCF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		19460214248481CB00D8FDCF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				19C46B1D24806428002537D5 /* BroadcastSearchFilterHelperTests.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		19460215248481D000D8FDCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19460216248481D300D8FDCF /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		19460217248481D900D8FDCF /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		19C46AF724806427002537D5 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +170,10 @@
 		19C46B1C24806428002537D5 /* SonaTests */ = {
 			isa = PBXGroup;
 			children = (
-				19C46B1D24806428002537D5 /* SonaTests.swift */,
+				19460217248481D900D8FDCF /* NetworkLayer */,
+				19460216248481D300D8FDCF /* HomeScreen */,
+				19460215248481D000D8FDCF /* Model */,
+				19460214248481CB00D8FDCF /* Util */,
 				19C46B1F24806428002537D5 /* Info.plist */,
 			);
 			path = SonaTests;
@@ -161,6 +203,7 @@
 				19C46B3924806606002537D5 /* Spinner.swift */,
 				19C46B4124809559002537D5 /* HomeScreen */,
 				19C46B3C2480661A002537D5 /* Model */,
+				1946021124847C0A00D8FDCF /* Util */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -182,7 +225,7 @@
 				19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */,
 				19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */,
 				19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */,
-				19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDataSource.swift */,
+				19C46B4C248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -319,12 +362,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */,
-				19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDataSource.swift in Sources */,
+				19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift in Sources */,
 				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
 				19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */,
 				19C46B0424806427002537D5 /* AppDelegate.swift in Sources */,
 				19C46B5124816A0A002537D5 /* Song.swift in Sources */,
 				19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */,
+				1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */,
 				19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */,
 				19C46B5324816AAF002537D5 /* User.swift in Sources */,
 				19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */,
@@ -337,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19C46B1E24806428002537D5 /* SonaTests.swift in Sources */,
+				19C46B1E24806428002537D5 /* BroadcastSearchFilterHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

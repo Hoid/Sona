@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xx8-1H-dGm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,21 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0Y-jI-Xgb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem id="QnE-Kj-CZX">
-                                        <nil key="title"/>
-                                        <switch key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="KUX-O4-SyY">
-                                            <rect key="frame" x="181.5" y="6.5" width="51" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="isPublicChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zu5-CQ-X6r"/>
-                                            </connections>
-                                        </switch>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-cy-0wU">
                                 <rect key="frame" x="152" y="629" width="110" height="110"/>
                                 <constraints>
@@ -46,22 +31,29 @@
                         <constraints>
                             <constraint firstItem="9MA-cy-0wU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="0aC-eG-deg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9MA-cy-0wU" secondAttribute="bottom" constant="123" id="47v-72-SBS"/>
-                            <constraint firstItem="9MA-cy-0wU" firstAttribute="centerX" secondItem="k0Y-jI-Xgb" secondAttribute="centerX" id="M27-v8-aKd"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qvd-H1-lRy"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nGA-Id-9Zh"/>
-                            <constraint firstItem="k0Y-jI-Xgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ohA-dc-c5z"/>
+                            <constraint firstItem="9MA-cy-0wU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rNL-eu-sQx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lcC-WW-Qqb"/>
+                    <navigationItem key="navigationItem" id="lcC-WW-Qqb">
+                        <nil key="title"/>
+                        <switch key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KUX-O4-SyY">
+                            <rect key="frame" x="181.5" y="6.5" width="51" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="onTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="isPublicChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zu5-CQ-X6r"/>
+                            </connections>
+                        </switch>
+                    </navigationItem>
                     <connections>
                         <outlet property="isPublicSwitch" destination="KUX-O4-SyY" id="CoV-4Z-M1I"/>
-                        <outlet property="navigationBar" destination="k0Y-jI-Xgb" id="cU4-Oj-GTm"/>
+                        <outlet property="navigationItem" destination="lcC-WW-Qqb" id="7h5-Gc-5jj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
+            <point key="canvasLocation" x="138" y="76"/>
         </scene>
         <!--Broadcast Search View Controller-->
         <scene sceneID="4ZH-kP-fHo">
@@ -184,6 +176,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5w-Ke-oOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="1478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iWA-Yq-J1f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xx8-1H-dGm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9eC-t8-6Nv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eAF-ti-12D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vj-oI-KT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-796" y="76"/>
         </scene>
     </scenes>
     <resources>

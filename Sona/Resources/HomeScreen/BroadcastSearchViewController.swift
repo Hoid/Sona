@@ -47,14 +47,9 @@ class BroadcastSearchViewController : UIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         let broadcasts = self.broadcastSearchResultsTableVC?.datasource.broadcasts
-
-        let filteredBroadcasts = broadcasts?.filter({ (broadcast) -> Bool in
-            let title = broadcast.song.title
-            let artist = broadcast.song.artist
-            let username = broadcast.user.username
-            return title.contains(searchText) || artist.contains(searchText) || username.contains(searchText)
-        })
-        self.broadcastSearchResultsTableVC?.datasource.filteredBroadcasts = filteredBroadcasts ?? [Broadcast]()
+        let broadcastSearchFilterHelper = BroadcastSearchFilterHelper(broadcasts: broadcasts)
+        
+        self.broadcastSearchResultsTableVC?.datasource.filteredBroadcasts = broadcastSearchFilterHelper.filter(searchText: searchText)
         self.broadcastSearchResultsTableVC?.tableView.reloadData()
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 class BroadcastSearchResultsTableViewController : UITableViewController {
     
-    let datasource = BroadcastSearchResultsTableViewDataSource()
+    let datasource = BroadcastSearchResultsTableViewDatasource()
     
     override func viewDidLoad() {
         datasource.broadcasts = [
@@ -21,6 +21,10 @@ class BroadcastSearchResultsTableViewController : UITableViewController {
             Broadcast(
                 song: Song(id: "2", title: "How To Disappear Completely", artist: "Radiohead"),
                 user: User(username: "sylphrenetic")
+            ),
+            Broadcast(
+                song: Song(id: "3", title: "Kids", artist: "MGMT"),
+                user: User(username: "other_username")
             )
         ]
         self.tableView.dataSource = datasource
