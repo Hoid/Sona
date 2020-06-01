@@ -1,0 +1,6 @@
+framework module Pods_Sona_SonaUITests {
+  umbrella header "Pods-Sona-SonaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

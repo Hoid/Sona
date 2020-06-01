@@ -37,6 +37,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="lcC-WW-Qqb">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="EmptyProfileIcon" id="amN-rB-iOn">
+                            <connections>
+                                <segue destination="BmB-oU-JJV" kind="show" id="L0E-jS-hjE"/>
+                            </connections>
+                        </barButtonItem>
                         <switch key="titleView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KUX-O4-SyY">
                             <rect key="frame" x="181.5" y="6.5" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,6 +59,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="76"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="rPF-hq-bnj">
+            <objects>
+                <viewController id="BmB-oU-JJV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8ma-th-BJK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Vfc-mq-3xY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="REn-g8-eCb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UP-Lh-IsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="76"/>
         </scene>
         <!--Broadcast Search View Controller-->
         <scene sceneID="4ZH-kP-fHo">
@@ -123,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BroadcastSearchResultsTableViewCellReuseIdentifier" rowHeight="90" id="uZv-OA-B5Z" customClass="BroadcastSearchResultsTableViewCell" customModule="Sona">
+                            <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BroadcastSearchResultsTableViewCellReuseIdentifier" rowHeight="90" id="uZv-OA-B5Z" customClass="BroadcastSearchResultsTableViewCell" customModule="Sona">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZv-OA-B5Z" id="iUr-rK-945">
@@ -131,19 +152,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Disappear Completely" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFJ-yB-mVn">
-                                            <rect key="frame" x="20" y="11" width="231" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radiohead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-wG-kJd">
-                                            <rect key="frame" x="20" y="32" width="69" height="17"/>
+                                            <rect key="frame" x="20" y="32" width="374" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="sylphrenetic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpV-2A-LsY">
-                                            <rect key="frame" x="20" y="59" width="89" height="20"/>
+                                            <rect key="frame" x="20" y="59" width="374" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -152,14 +173,17 @@
                                     <constraints>
                                         <constraint firstItem="LpV-2A-LsY" firstAttribute="top" secondItem="O6f-wG-kJd" secondAttribute="bottom" constant="10" id="8if-pD-mXj"/>
                                         <constraint firstItem="LpV-2A-LsY" firstAttribute="leading" secondItem="iUr-rK-945" secondAttribute="leadingMargin" id="FKs-Az-Mb0"/>
+                                        <constraint firstItem="QFJ-yB-mVn" firstAttribute="trailing" secondItem="iUr-rK-945" secondAttribute="trailingMargin" id="HXx-TC-nxJ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LpV-2A-LsY" secondAttribute="bottom" id="PD5-Uk-6vn"/>
                                         <constraint firstItem="O6f-wG-kJd" firstAttribute="top" secondItem="QFJ-yB-mVn" secondAttribute="bottom" id="RnT-Ye-e8F"/>
                                         <constraint firstItem="O6f-wG-kJd" firstAttribute="leading" secondItem="iUr-rK-945" secondAttribute="leadingMargin" id="TIO-2a-fFg"/>
                                         <constraint firstItem="QFJ-yB-mVn" firstAttribute="top" secondItem="iUr-rK-945" secondAttribute="topMargin" id="UBX-j9-MQk"/>
+                                        <constraint firstItem="LpV-2A-LsY" firstAttribute="trailing" secondItem="iUr-rK-945" secondAttribute="trailingMargin" id="WpC-Xy-ISx"/>
+                                        <constraint firstItem="O6f-wG-kJd" firstAttribute="trailing" secondItem="iUr-rK-945" secondAttribute="trailingMargin" id="aJm-kT-VZc"/>
                                         <constraint firstItem="QFJ-yB-mVn" firstAttribute="leading" secondItem="iUr-rK-945" secondAttribute="leadingMargin" id="paq-6y-d6I"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.85104179862487306" green="0.36244297670270642" blue="0.43976369785719827" alpha="0.3789330051369863" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.64331489799999997" green="0.76195007560000005" blue="0.67057758570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="artistLabel" destination="O6f-wG-kJd" id="6Uh-Cp-XT1"/>
                                     <outlet property="songTitleLabel" destination="QFJ-yB-mVn" id="L2O-vT-LhQ"/>
@@ -175,7 +199,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5w-Ke-oOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="1478"/>
+            <point key="canvasLocation" x="137.68115942028987" y="1477.5669642857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iWA-Yq-J1f">
@@ -197,6 +221,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EmptyProfileIcon" width="32" height="32"/>
         <image name="HomeScreenBroadcastSearchIcon" width="64" height="64"/>
     </resources>
 </document>

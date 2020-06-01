@@ -11,9 +11,15 @@ import UIKit
 class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var isPublicSwitch: UISwitch!
+    var userStore: UserStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.userStore = UserStore()
+        self.userStore.saveNewUser(username: "My User", profileImage: nil)
+        self.userStore.fetchPersistedData { (fetchUsersResult) in
+            print(fetchUsersResult)
+        }
     }
     
     @IBAction func isPublicChanged(_ sender: Any) {

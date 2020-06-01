@@ -13,18 +13,22 @@ class BroadcastSearchResultsTableViewController : UITableViewController {
     let datasource = BroadcastSearchResultsTableViewDatasource()
     
     override func viewDidLoad() {
+        let user1 = User()
+        user1.username = "sylphrenetic"
+        let user2 = User()
+        user2.username = "other_username"
         let broadcasts = [
             Broadcast(
                 song: Song(id: "1", title: "November Rain", artist: "Guns N' Roses"),
-                user: User(username: "sylphrenetic")
+                user: user1
             ),
             Broadcast(
                 song: Song(id: "2", title: "How To Disappear Completely", artist: "Radiohead"),
-                user: User(username: "sylphrenetic")
+                user: user1
             ),
             Broadcast(
                 song: Song(id: "3", title: "Kids", artist: "MGMT"),
-                user: User(username: "other_username")
+                user: user2
             )
         ]
         datasource.broadcasts = broadcasts
