@@ -10,12 +10,6 @@
 		1918A7FC2485C27F004DE142 /* DataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FB2485C27F004DE142 /* DataModelManager.swift */; };
 		1918A7FE2485C503004DE142 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FD2485C503004DE142 /* User.swift */; };
 		1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */; };
-		194602212484951000D8FDCF /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021D2484951000D8FDCF /* Profile+CoreDataClass.swift */; };
-		194602222484951000D8FDCF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021E2484951000D8FDCF /* Profile+CoreDataProperties.swift */; };
-		194602232484951000D8FDCF /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021F2484951000D8FDCF /* User+CoreDataClass.swift */; };
-		194602242484951000D8FDCF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194602202484951000D8FDCF /* User+CoreDataProperties.swift */; };
-		1946022A2484BA1400D8FDCF /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194602292484BA1400D8FDCF /* UserStore.swift */; };
-		19460230248561B200D8FDCF /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946022F248561B200D8FDCF /* CoreDataStore.swift */; };
 		19C46B0424806427002537D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0324806427002537D5 /* AppDelegate.swift */; };
 		19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0524806427002537D5 /* SceneDelegate.swift */; };
 		19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B0724806427002537D5 /* HomeScreenViewController.swift */; };
@@ -58,12 +52,6 @@
 		1918A7FB2485C27F004DE142 /* DataModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelManager.swift; sourceTree = "<group>"; };
 		1918A7FD2485C503004DE142 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchFilterHelper.swift; sourceTree = "<group>"; };
-		1946021D2484951000D8FDCF /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1946021E2484951000D8FDCF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1946021F2484951000D8FDCF /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		194602202484951000D8FDCF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		194602292484BA1400D8FDCF /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
-		1946022F248561B200D8FDCF /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		19C46B0024806427002537D5 /* Sona.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sona.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C46B0324806427002537D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		19C46B0524806427002537D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,13 +113,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1918A7FA2485C268004DE142 /* GRDB */ = {
+		1918A7FA2485C268004DE142 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				1918A7FB2485C27F004DE142 /* DataModelManager.swift */,
 				1918A7FD2485C503004DE142 /* User.swift */,
 			);
-			path = GRDB;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		1946021124847C0A00D8FDCF /* Util */ = {
@@ -187,27 +175,6 @@
 				19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */,
 			);
 			path = ViewCells;
-			sourceTree = "<group>";
-		};
-		194602312485620E00D8FDCF /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				194602322485622000D8FDCF /* Stores */,
-				1946021D2484951000D8FDCF /* Profile+CoreDataClass.swift */,
-				1946021E2484951000D8FDCF /* Profile+CoreDataProperties.swift */,
-				1946021F2484951000D8FDCF /* User+CoreDataClass.swift */,
-				194602202484951000D8FDCF /* User+CoreDataProperties.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		194602322485622000D8FDCF /* Stores */ = {
-			isa = PBXGroup;
-			children = (
-				1946022F248561B200D8FDCF /* CoreDataStore.swift */,
-				194602292484BA1400D8FDCF /* UserStore.swift */,
-			);
-			path = Stores;
 			sourceTree = "<group>";
 		};
 		19C46AF724806427002537D5 = {
@@ -292,8 +259,7 @@
 		19C46B3C2480661A002537D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1918A7FA2485C268004DE142 /* GRDB */,
-				194602312485620E00D8FDCF /* CoreData */,
+				1918A7FA2485C268004DE142 /* Database */,
 				19C46B4E248169C8002537D5 /* Broadcast.swift */,
 				19C46B5024816A0A002537D5 /* Song.swift */,
 			);
@@ -571,25 +537,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */,
-				194602212484951000D8FDCF /* Profile+CoreDataClass.swift in Sources */,
-				194602242484951000D8FDCF /* User+CoreDataProperties.swift in Sources */,
 				19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift in Sources */,
 				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
 				1918A7FC2485C27F004DE142 /* DataModelManager.swift in Sources */,
-				1946022A2484BA1400D8FDCF /* UserStore.swift in Sources */,
 				19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */,
 				1918A7FE2485C503004DE142 /* User.swift in Sources */,
 				19C46B0424806427002537D5 /* AppDelegate.swift in Sources */,
 				19C46B5124816A0A002537D5 /* Song.swift in Sources */,
 				19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */,
-				19460230248561B200D8FDCF /* CoreDataStore.swift in Sources */,
 				1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */,
 				19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */,
 				19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */,
 				19C46B3A24806606002537D5 /* Spinner.swift in Sources */,
-				194602222484951000D8FDCF /* Profile+CoreDataProperties.swift in Sources */,
 				19C46B4F248169C8002537D5 /* Broadcast.swift in Sources */,
-				194602232484951000D8FDCF /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
