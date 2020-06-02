@@ -11,14 +11,14 @@ import UIKit
 class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var isPublicSwitch: UISwitch!
-    var userStore: UserStore!
+    let userDataModelManager = DataModelManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userStore = UserStore()
-        self.userStore.saveNewUser(username: "My User", profileImage: nil)
-        self.userStore.fetchPersistedData { (fetchUsersResult) in
-            print(fetchUsersResult)
+        if let users = userDataModelManager.getAllUsers() {
+            print("Users: \(users)")
+        } else {
+            print("No users found.")
         }
     }
     

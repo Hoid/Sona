@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1918A7FC2485C27F004DE142 /* UserDataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FB2485C27F004DE142 /* UserDataModelManager.swift */; };
+		1918A7FC2485C27F004DE142 /* DataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FB2485C27F004DE142 /* DataModelManager.swift */; };
+		1918A7FE2485C503004DE142 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FD2485C503004DE142 /* User.swift */; };
 		1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */; };
 		194602212484951000D8FDCF /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021D2484951000D8FDCF /* Profile+CoreDataClass.swift */; };
 		194602222484951000D8FDCF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021E2484951000D8FDCF /* Profile+CoreDataProperties.swift */; };
@@ -54,7 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1918A7FB2485C27F004DE142 /* UserDataModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModelManager.swift; sourceTree = "<group>"; };
+		1918A7FB2485C27F004DE142 /* DataModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelManager.swift; sourceTree = "<group>"; };
+		1918A7FD2485C503004DE142 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchFilterHelper.swift; sourceTree = "<group>"; };
 		1946021D2484951000D8FDCF /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1946021E2484951000D8FDCF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -126,7 +128,8 @@
 		1918A7FA2485C268004DE142 /* GRDB */ = {
 			isa = PBXGroup;
 			children = (
-				1918A7FB2485C27F004DE142 /* UserDataModelManager.swift */,
+				1918A7FB2485C27F004DE142 /* DataModelManager.swift */,
+				1918A7FD2485C503004DE142 /* User.swift */,
 			);
 			path = GRDB;
 			sourceTree = "<group>";
@@ -572,9 +575,10 @@
 				194602242484951000D8FDCF /* User+CoreDataProperties.swift in Sources */,
 				19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift in Sources */,
 				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
-				1918A7FC2485C27F004DE142 /* UserDataModelManager.swift in Sources */,
+				1918A7FC2485C27F004DE142 /* DataModelManager.swift in Sources */,
 				1946022A2484BA1400D8FDCF /* UserStore.swift in Sources */,
 				19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */,
+				1918A7FE2485C503004DE142 /* User.swift in Sources */,
 				19C46B0424806427002537D5 /* AppDelegate.swift in Sources */,
 				19C46B5124816A0A002537D5 /* Song.swift in Sources */,
 				19C46B0E24806427002537D5 /* Sona.xcdatamodeld in Sources */,
