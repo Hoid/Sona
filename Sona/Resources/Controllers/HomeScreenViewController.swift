@@ -15,11 +15,16 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let users = DataModelManager.getAllUsers() {
-            print("Users: \(users)")
-        } else {
-            print("No users found.")
+        do {
+            if let users = try DataModelManager.getAllUsers() {
+                print("Users: \(users)")
+            } else {
+                print("No users found.")
+            }
+        } catch {
+            print("Could not get users from database.")
         }
+        
     }
     
     @IBAction func isPublicChanged(_ sender: Any) {
