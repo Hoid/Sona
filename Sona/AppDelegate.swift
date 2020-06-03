@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         try! DataModelManager.setup(in: application)
-        if !DataModelManager.tableExists(tableName: "user") {
-            DataModelManager.createUserTable()
-        }
-        DataModelManager.createUser(user: User(id: 1, username: "sylphrenetic"))
         return true
     }
 

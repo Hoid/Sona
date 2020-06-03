@@ -15,7 +15,7 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let users = userDataModelManager.getAllUsers() {
+        if let users = DataModelManager.getAllUsers() {
             print("Users: \(users)")
         } else {
             print("No users found.")
