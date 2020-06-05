@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  SonaUser.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 6/1/20.
@@ -16,8 +16,9 @@ class User : Record, CustomStringConvertible {
     
     // MARK: Member variables
     
-    var id: Int64
-    var username: String
+    private(set) var id: Int64!
+    var email: String
+    var username: String?
     var name: String
     
     // MARK: Computed properties
@@ -27,13 +28,14 @@ class User : Record, CustomStringConvertible {
     }
     
     var description: String {
-        return "User = id: \(id), username: \(username), name: \(name)"
+        // String(describing:) is necessary because id isn't of type String and we don't know if username will be present
+        return "User = id: \(String(describing: id)), email: \(email), username: \(String(describing: username)), name: \(name)"
     }
     
     // MARK: Initializers
     
-    init(id: Int64, username: String, name: String) {
-        self.id = id
+    init(email: String, username: String?, name: String) {
+        self.email = email
         self.username = username
         self.name = name
         super.init()
@@ -41,7 +43,7 @@ class User : Record, CustomStringConvertible {
     
     /// Creates a record from a database row
     required init(row: Row) {
-        self.id = row[Columns.id]
+        self.email = row[Columns.email]
         self.username = row[Columns.username]
         self.name = row[Columns.name]
         super.init(row: row)
@@ -52,6 +54,7 @@ class User : Record, CustomStringConvertible {
     /// The values persisted in the database
     override func encode(to container: inout PersistenceContainer) {
         container[Columns.id] = self.id
+        container[Columns.email] = self.email
         container[Columns.username] = self.username
         container[Columns.name] = self.name
     }
@@ -68,7 +71,7 @@ class User : Record, CustomStringConvertible {
     
     /// The table columns
     enum Columns: String, ColumnExpression {
-        case id, username, name
+        case id, email, username, name
     }
     
 }
@@ -76,6 +79,7 @@ class User : Record, CustomStringConvertible {
 extension User {
     
     static let DEFAULT_ID: Int64 = 0
+    static let DEFAULT_EMAIL = "my@email.com"
     static let DEFAULT_NAME = "John Doe"
     static let DEFAULT_USERNAME = "pillsbury_doe_boy"
     

@@ -23,11 +23,16 @@ class BroadcastSearchFilterHelper {
         if self.broadcasts.isEmpty {
             return [Broadcast]()
         }
-        let filteredBroadcasts = searchText.isEmpty ? broadcasts : broadcasts.filter({ (broadcast) -> Bool in
-            let title = broadcast.song.title
-            let artist = broadcast.song.artist
-            let username = broadcast.user.username
-            return title.localizedCaseInsensitiveContains(searchText) || artist.localizedCaseInsensitiveContains(searchText) || username.localizedCaseInsensitiveContains(searchText)
+        let filteredBroadcasts = searchText.isEmpty ? broadcasts : broadcasts.filter({ (broadcast: Broadcast) -> Bool in
+            let titleMeetsFilter = broadcast.song.title.localizedCaseInsensitiveContains(searchText)
+            let artistMeetsFilter = broadcast.song.artist.localizedCaseInsensitiveContains(searchText)
+            var usernameMeetsFilter: Bool
+            if let username = broadcast.user.username {
+                usernameMeetsFilter = username.localizedCaseInsensitiveContains(searchText)
+            } else {
+                usernameMeetsFilter = false
+            }
+            return (titleMeetsFilter || artistMeetsFilter || usernameMeetsFilter)
         })
         return filteredBroadcasts
         

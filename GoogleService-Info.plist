@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>419720251040-agr90d6tve8emrn0k277m96oprrh3mm7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.419720251040-agr90d6tve8emrn0k277m96oprrh3mm7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC6XxQWfC8GDB379uMufkScgu29XioVssE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>419720251040</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.audire.Sona</string>
+	<key>PROJECT_ID</key>
+	<string>sona-social-music</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sona-social-music.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:419720251040:ios:5c08c1bd84590d4c2cabc5</string>
+	<key>DATABASE_URL</key>
+	<string>https://sona-social-music.firebaseio.com</string>
+</dict>
+</plist>

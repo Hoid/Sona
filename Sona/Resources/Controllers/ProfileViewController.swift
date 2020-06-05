@@ -22,7 +22,7 @@ class ProfileViewController : UIViewController {
                 self.profile = profile
             } else {
                 print("No profiles could be loaded from the database.")
-                self.profile = Profile(id: 0, userId: 0, profileImage: nil)
+                self.profile = Profile(userId: 0, profileImage: nil)
             }
         } catch {
             print("Could not get non-default profile.")

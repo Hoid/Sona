@@ -17,7 +17,7 @@ class Profile : Record, CustomStringConvertible {
     
     // MARK: Member variables
     
-    var id: Int64
+    private(set) var id: Int64!
     var userId: Int64
     var profileImage: UIImage?
     
@@ -32,13 +32,12 @@ class Profile : Record, CustomStringConvertible {
     }
     
     var description: String {
-        return "Profile = id: \(self.id), userId: \(self.userId), profileImage: \(self.profileImageExists)"
+        return "Profile = id: \(String(describing: self.id)), userId: \(self.userId), profileImage: \(self.profileImageExists)"
     }
     
     // MARK: Initializers
     
-    init(id: Int64, userId: Int64, profileImage: UIImage?) {
-        self.id = id
+    init(userId: Int64, profileImage: UIImage?) {
         self.userId = userId
         self.profileImage = profileImage
         super.init()

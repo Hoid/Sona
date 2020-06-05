@@ -36,12 +36,9 @@ class DataModelManager {
         if !DataModelManager.tableExists(tableName: User.databaseTableName) {
             DataModelManager.createUserTable()
             do {
-                try DataModelManager.createUser(user: User(id: User.DEFAULT_ID, username: User.DEFAULT_USERNAME, name: User.DEFAULT_NAME))
-            } catch {
-                print("Database Error: \(error)")
-            }
-            do {
-                try DataModelManager.createUser(user: User(id: 1, username: "sylphrenetic", name: "Tyler Cheek"))
+                if (try DataModelManager.getUserForUsername(username: User.DEFAULT_USERNAME)) == nil {
+                    try DataModelManager.createUser(user: User(email: User.DEFAULT_EMAIL, username: User.DEFAULT_USERNAME, name: User.DEFAULT_NAME))
+                }
             } catch {
                 print("Database Error: \(error)")
             }
@@ -52,12 +49,7 @@ class DataModelManager {
         if !DataModelManager.tableExists(tableName: Profile.databaseTableName) {
             DataModelManager.createProfileTable()
             do {
-                try DataModelManager.createProfile(profile: Profile(id: Profile.DEFAULT_ID, userId: User.DEFAULT_ID, profileImage: nil))
-            } catch {
-                print("Database Error: \(error)")
-            }
-            do {
-                try DataModelManager.createProfile(profile: Profile(id: 1, userId: 1, profileImage: nil))
+                try DataModelManager.createProfile(profile: Profile(userId: User.DEFAULT_ID, profileImage: nil))
             } catch {
                 print("Database Error: \(error)")
             }
@@ -85,6 +77,7 @@ class DataModelManager {
             try dbQueue.write({ (db) in
                 try db.create(table: User.databaseTableName) { t in
                     t.autoIncrementedPrimaryKey(User.Columns.id.rawValue)
+                    t.column(User.Columns.email.rawValue, .text)
                     t.column(User.Columns.username.rawValue, .text).unique(onConflict: .abort)
                     t.column(User.Columns.name.rawValue, .text)
                 }
@@ -96,15 +89,35 @@ class DataModelManager {
     
     public static func createUser(user: User) throws {
         try dbQueue.write({ (db) in
-            try user.insert(db)
+            if let username = user.username {
+                let request = User.filter(Column("username") == username)
+                let userExists = try User.fetchOne(db, request) != nil
+                if !userExists {
+                    try user.insert(db)
+                } else {
+                    throw UsernameError.alreadyExists
+                }
+            } else {
+                // username is not present in User object, so we need not check if a user with that username already exists
+                try user.insert(db)
+            }
         })
     }
     
-    public static func getAllUsers() throws -> [User]? {
+    public static func getAllUsers() throws -> [User] {
         let users = try DataModelManager.dbQueue.read({ (db) -> [User] in
             try User.fetchAll(db)
         })
         return users
+    }
+    
+    public static func getUserForUsername(username: String) throws -> User? {
+        let user = try DataModelManager.dbQueue.read({ (db) -> User? in
+            let request = User.filter(Column("username") == username)
+            let user = try User.fetchOne(db, request)
+            return user
+        })
+        return user
     }
     
     public static func getUserForId(id: Int64) throws -> User? {

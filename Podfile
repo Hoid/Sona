@@ -8,6 +8,9 @@ target 'Sona' do
   # Pods for Sona
   
   pod 'GRDB.swift'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/OAuth'
   
   target 'SonaTests' do
     inherit! :search_paths
