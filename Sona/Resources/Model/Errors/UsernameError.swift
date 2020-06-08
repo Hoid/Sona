@@ -1,5 +1,5 @@
 //
-//  UsernameAlreadyExistsError.swift
+//  UsernameError.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 6/4/20.
@@ -8,6 +8,6 @@
 
 enum UsernameError : Error {
     
-    case alreadyExists
+    case alreadyExists(username: String)
     
 }

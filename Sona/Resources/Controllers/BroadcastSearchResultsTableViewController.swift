@@ -16,15 +16,15 @@ class BroadcastSearchResultsTableViewController : UITableViewController {
         let broadcasts = [
             Broadcast(
                 song: Song(id: "1", title: "November Rain", artist: "Guns N' Roses"),
-                user: User(email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek")
+                user: User(email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek", firebaseUID: "1234")
             ),
             Broadcast(
                 song: Song(id: "2", title: "How To Disappear Completely", artist: "Radiohead"),
-                user: User(email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek")
+                user: User(email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek", firebaseUID: "1234")
             ),
             Broadcast(
                 song: Song(id: "3", title: "Kids", artist: "MGMT"),
-                user: User(email: "my@email.com", username: "other_username", name: User.DEFAULT_NAME)
+                user: User(email: User.DEFAULT_EMAIL, username: User.DEFAULT_USERNAME, name: User.DEFAULT_NAME, firebaseUID: User.DEFAULT_FIREBASE_ID)
             )
         ]
         datasource.broadcasts = broadcasts

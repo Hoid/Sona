@@ -35,24 +35,12 @@ class DataModelManager {
     private static func setupUserTable() {
         if !DataModelManager.tableExists(tableName: User.databaseTableName) {
             DataModelManager.createUserTable()
-            do {
-                if (try DataModelManager.getUserForUsername(username: User.DEFAULT_USERNAME)) == nil {
-                    try DataModelManager.createUser(user: User(email: User.DEFAULT_EMAIL, username: User.DEFAULT_USERNAME, name: User.DEFAULT_NAME))
-                }
-            } catch {
-                print("Database Error: \(error)")
-            }
         }
     }
     
     private static func setupProfileTable() {
         if !DataModelManager.tableExists(tableName: Profile.databaseTableName) {
             DataModelManager.createProfileTable()
-            do {
-                try DataModelManager.createProfile(profile: Profile(userId: User.DEFAULT_ID, profileImage: nil))
-            } catch {
-                print("Database Error: \(error)")
-            }
         }
     }
     
@@ -80,6 +68,7 @@ class DataModelManager {
                     t.column(User.Columns.email.rawValue, .text)
                     t.column(User.Columns.username.rawValue, .text).unique(onConflict: .abort)
                     t.column(User.Columns.name.rawValue, .text)
+                    t.column(User.Columns.firebase_uid.rawValue, .text).unique(onConflict: .abort)
                 }
             })
         } catch {
@@ -95,7 +84,7 @@ class DataModelManager {
                 if !userExists {
                     try user.insert(db)
                 } else {
-                    throw UsernameError.alreadyExists
+                    throw UsernameError.alreadyExists(username: username)
                 }
             } else {
                 // username is not present in User object, so we need not check if a user with that username already exists
@@ -134,6 +123,27 @@ class DataModelManager {
             try profile.user.fetchOne(db)
         })
         return user
+    }
+    
+    public static func getUserForFirebaseUID(firebaseUID: String) throws -> User? {
+        try DataModelManager.dbQueue.read({ (db) -> User? in
+            let request = User.filter(Column(User.Columns.firebase_uid.rawValue) == firebaseUID)
+            let user = try User.fetchOne(db, request)
+            return user
+        })
+    }
+    
+    public static func setUsernameForFirebaseUID(username: String, firebaseUID: String) throws {
+        guard let user = try getUserForFirebaseUID(firebaseUID: firebaseUID) else {
+            throw UserError.notFound(firebaseUID: firebaseUID)
+        }
+        user.username = username
+        try DataModelManager.dbQueue.write({ (db) in
+            let modified = try user.updateChanges(db)
+            if !modified {
+                print("No updates necessary for user: \(user)")
+            }
+        })
     }
         
     // MARK: Profiles

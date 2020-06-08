@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController : UIViewController {
     
@@ -15,6 +16,7 @@ class ProfileViewController : UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         do {
@@ -39,6 +41,14 @@ class ProfileViewController : UIViewController {
             print("Could not get user for profile.")
         }
         profileImage.image = self.profile?.profileImage ?? UIImage(named: "EmptyProfileIcon")
+    }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Could not logout due to error: \(error)")
+        }
     }
     
 }
