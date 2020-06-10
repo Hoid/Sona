@@ -33,21 +33,17 @@ class SignInController : NSObject, FUIAuthDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FAUser?, error: Error?) {
         // create user in database without a username
-        do {
-            guard let user = user else {
-                print("Could not create user from auth because user from Firebase is nil.")
-                // show something to the user that says there was an error and to try again
-                return
-            }
-            guard let email = user.email, let name = user.displayName else {
-                print("Could not create user from auth because at least one user property wasn't present.")
-                // show something to the user that says there was an error and to try again
-                return
-            }
-            try DataModelManager.createUser(user: User(email: email, username: nil, name: name, firebaseUID: "1234"))
-        } catch {
-            print("Could not create user. Error: \(error)")
+        guard let user = user else {
+            print("Could not create user from auth because user from Firebase is nil.")
+            // show something to the user that says there was an error and to try again
+            return
         }
+        guard let email = user.email, let name = user.displayName else {
+            print("Could not create user from auth because at least one user property wasn't present.")
+            // show something to the user that says there was an error and to try again
+            return
+        }
+        UserDAO.create(user: User(email: email, username: nil, name: name, firebaseUID: user.uid))
     }
     
     @available(iOS 13, *)

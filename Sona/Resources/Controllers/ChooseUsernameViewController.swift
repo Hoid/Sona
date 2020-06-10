@@ -29,16 +29,12 @@ class ChooseUsernameViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let loggedInUser = Auth.auth().currentUser {
             let firebaseUID = loggedInUser.uid
-            do {
-                if let user = try DataModelManager.getUserForFirebaseUID(firebaseUID: firebaseUID) {
-                    if user.username != nil {
-                        // if logged in user has a username already, go to home page
-                        print("User with FirebaseUID \(firebaseUID) is currently signed in. Attempting to present home page.")
-                        performSegue(withIdentifier: "showHomePage", sender: self)
-                    }
+            if let user = UserDAO.getUserFor(firebaseUID: firebaseUID) {
+                if user.username != nil {
+                    // if logged in user has a username already, go to home page
+                    print("User with FirebaseUID \(firebaseUID) is currently signed in. Attempting to present home page.")
+                    performSegue(withIdentifier: "showHomePage", sender: self)
                 }
-            } catch {
-                print("Could not get user for firebaseUID in ChooseUsernameViewController.viewDidAppear(_:)")
             }
         } else {
             print("No user signed in. Attempting to present sign in page.")
@@ -63,15 +59,15 @@ class ChooseUsernameViewController : UIViewController {
         // if username is unique, enable submit button
         if let usernameInputText = usernameInputTextField.text {
             print("Checking uniqueness of username: \(usernameInputText)")
-            do {
-                if try DataModelManager.getUserForUsername(username: usernameInputText) == nil {
-                    print("No user found with username \(usernameInputText).")
-                    self.submitButton.isEnabled = true
-                } else {
-                    self.submitButton.isEnabled = false
-                }
-            } catch {
+            let user = UserDAO.getUserFor(username: usernameInputText, handleError: { (error) in
                 print("Error checking username for uniqueness. Error: \(error)")
+                self.submitButton.isEnabled = false
+                return
+            })
+            if user == nil {
+                print("No user found with username \(usernameInputText).")
+                self.submitButton.isEnabled = true
+            } else {
                 self.submitButton.isEnabled = false
             }
         } else {
@@ -90,17 +86,24 @@ class ChooseUsernameViewController : UIViewController {
             print("No user is currently signed in in ChooseUsernameViewController.submitButtonPressed(_:)")
             return
         }
-        do {
-            if try DataModelManager.getUserForFirebaseUID(firebaseUID: firebaseUser.uid) == nil {
-                guard let email = firebaseUser.email, let name = firebaseUser.displayName else {
-                    print("Could not unwrap firebase email or displayName in ChooseUsernameViewController.submitButtonPressed(_:)")
-                    return // should I be returning here?
-                }
-                try DataModelManager.createUser(user: User(email: email, username: username, name: name, firebaseUID: firebaseUser.uid))
+        if let user = UserDAO.getUserFor(firebaseUID: firebaseUser.uid) {
+            // ensure a profile exists for this user
+            if ProfileDAO.getProfileFor(user: user) == nil {
+                ProfileDAO.create(profile: Profile(userId: user.id, profileImage: nil))
+            }
+        } else {
+            // no user exists for the given firebaseUID
+            guard let email = firebaseUser.email, let name = firebaseUser.displayName else {
+                print("Could not unwrap either firebase email or displayName in ChooseUsernameViewController.submitButtonPressed(_:)")
+                return // should I be returning here?
+            }
+            let user = User(email: email, username: username, name: name, firebaseUID: firebaseUser.uid)
+            UserDAO.create(user: user)
+            guard let createdUser = UserDAO.getUser(user) else {
+                print("Could not get user that was just created.")
                 return
             }
-        } catch {
-            print("Database Error: \(error)")
+            ProfileDAO.create(profile: Profile(userId: createdUser.id, profileImage: nil))
         }
     }
     

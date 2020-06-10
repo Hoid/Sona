@@ -14,11 +14,10 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            let users = try DataModelManager.getAllUsers()
-            print("Users: \(users)")
-        } catch {
-            print("Could not get users from database.")
+        if let users = UserDAO.getAllUsers() {
+            print("Users: \(String(describing: users))")
+        } else {
+            print("Could not get all users in HomeScreenViewController.viewDidLoad()")
         }
     }
     

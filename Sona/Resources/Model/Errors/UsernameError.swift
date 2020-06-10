@@ -8,6 +8,13 @@
 
 enum UsernameError : Error {
     
-    case alreadyExists(username: String)
+    case alreadyExists(message: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case let .alreadyExists(message):
+            return message
+        }
+    }
     
 }

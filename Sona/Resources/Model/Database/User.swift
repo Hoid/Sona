@@ -45,6 +45,7 @@ class User : Record, CustomStringConvertible {
     
     /// Creates a record from a database row
     required init(row: Row) {
+        self.id = row[Columns.id]
         self.email = row[Columns.email]
         self.username = row[Columns.username]
         self.name = row[Columns.name]

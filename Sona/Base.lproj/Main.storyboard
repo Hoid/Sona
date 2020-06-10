@@ -94,10 +94,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkY-gn-FOr">
-                                <rect key="frame" x="122" y="744" width="170" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkY-gn-FOr">
+                                <rect key="frame" x="122" y="732" width="170" height="60"/>
                                 <color key="backgroundColor" red="0.85104179859999995" green="0.36244297669999997" blue="0.43976369789999997" alpha="0.3789330051" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3jD-z9-Wsv"/>
+                                </constraints>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -110,8 +112,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="lP0-q9-hhg" firstAttribute="leading" secondItem="Vfc-mq-3xY" secondAttribute="leading" constant="37" id="1mc-8T-uCy"/>
+                            <constraint firstItem="Vfc-mq-3xY" firstAttribute="trailing" secondItem="mkY-gn-FOr" secondAttribute="trailing" constant="122" id="A6i-Rn-Gpg"/>
                             <constraint firstItem="lP0-q9-hhg" firstAttribute="top" secondItem="Vfc-mq-3xY" secondAttribute="top" constant="58" id="Dbz-yB-4rJ"/>
                             <constraint firstItem="hdQ-HE-IgT" firstAttribute="leading" secondItem="lP0-q9-hhg" secondAttribute="trailing" constant="30" id="IZz-ke-Y2I"/>
+                            <constraint firstItem="Vfc-mq-3xY" firstAttribute="bottom" secondItem="mkY-gn-FOr" secondAttribute="bottom" constant="70" id="KlF-dF-1ah"/>
+                            <constraint firstItem="mkY-gn-FOr" firstAttribute="leading" secondItem="Vfc-mq-3xY" secondAttribute="leading" constant="122" id="b7c-yz-zi9"/>
                             <constraint firstItem="Vfc-mq-3xY" firstAttribute="trailing" secondItem="hdQ-HE-IgT" secondAttribute="trailing" constant="20" id="owV-Mk-gwY"/>
                             <constraint firstItem="Vfc-mq-3xY" firstAttribute="trailing" secondItem="lmi-fe-lDo" secondAttribute="trailing" constant="20" id="rnP-g1-ijq"/>
                             <constraint firstItem="lmi-fe-lDo" firstAttribute="top" secondItem="hdQ-HE-IgT" secondAttribute="bottom" constant="8" id="vJc-tE-fqm"/>
