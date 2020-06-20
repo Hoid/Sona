@@ -70,15 +70,9 @@ extension UsersApi: EndPointType {
     var task: HTTPTask {
         switch self {
         case .getUsers, .getPublicUsers, .getUser:
-            return .requestWithParametersAndHeaders(bodyParameters: nil, urlParameters: nil, headers: headers)
-        case .setIsPublic(let isPublic, let userFirebaseUID):
-            return .requestWithParameters(
-                bodyParameters: [
-                    "isPublic" : isPublic,
-                    "userFirebaseUID" : userFirebaseUID
-                ],
-                urlParameters: nil
-            )
+            return .requestWithParameters(bodyParameters: nil, urlParameters: nil)
+        case .setIsPublic(let isPublic, _):
+            return .requestWithParameters(bodyParameters: ["isPublic" : isPublic], urlParameters: nil)
         case .newUser(let user):
             return .requestWithParameters(bodyParameters: user.bodyParameters, urlParameters: nil)
         case .putUser(let user):

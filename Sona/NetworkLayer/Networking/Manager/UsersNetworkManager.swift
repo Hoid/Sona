@@ -50,10 +50,18 @@ class UsersNetworkManager : NetworkManager {
         
     }
     
+    func set(isPublic: Bool, forUserFirebaseUID userFirebaseUID: String, completion: @escaping (_ userApiResponse: UserApiResponse?, _ error: String?) -> ()) {
+        
+        router.request(.setIsPublic(isPublic: isPublic, userFirebaseUID: userFirebaseUID)) { (_, response, error) in
+            self.handleResponse(data: nil, dataType: nil, response: response, error: error, completion: completion)
+        }
+        
+    }
+    
     // This generic method helps reduce duplicated code, since this code used to be repeated in all of the above methods
-    private func handleResponse<T: Decodable>(data: Data?, dataType: T.Type, response: URLResponse?, error: Error?, completion: @escaping (T?, _ error: String?) -> ()) {
+    private func handleResponse<T: Decodable>(data: Data?, dataType: T.Type?, response: URLResponse?, error: Error?, completion: @escaping (T?, _ error: String?) -> ()) {
         if error != nil {
-            completion(nil, "Please check your network connection.")
+            completion(nil, "Please check your network connection or server status.")
         }
 
         if let response = response as? HTTPURLResponse {
@@ -61,12 +69,18 @@ class UsersNetworkManager : NetworkManager {
             switch result {
             case .success:
                 guard let responseData = data else {
-                    completion(nil, HTTPNetworkError.noData.errorDescription)
+                    // still a success case, just with only a response status and no response body
+                    completion(nil, nil)
                     return
                 }
                 do {
-                    let apiResponse = try JSONDecoder().decode(dataType, from: responseData)
-                    completion(apiResponse, nil)
+                    if let dataType = dataType {
+                        let apiResponse = try JSONDecoder().decode(dataType, from: responseData)
+                        completion(apiResponse, nil)
+                    } else {
+                        // still a success case, just with only a response status and no response body
+                        completion(nil, nil)
+                    }
                 } catch {
                     print(error)
                     completion(nil, HTTPNetworkError.decodingFailed.errorDescription)

@@ -31,6 +31,7 @@ extension NetworkManager {
         case 200...299: return .success("Successful network request.")
         case 401...403: return .failure(HTTPNetworkError.authenticationError)
         case 404: return .failure(HTTPNetworkError.pageNotFound)
+        case 409: return .failure(HTTPNetworkError.resourceAlreadyExists)
         case 501...599: return .failure(HTTPNetworkError.serverSideError)
         default: return .failure(HTTPNetworkError.failed)
         }
@@ -57,6 +58,7 @@ public enum HTTPNetworkError: LocalizedError {
     case pageNotFound
     case failed
     case serverSideError
+    case resourceAlreadyExists
     
     public var errorDescription: String? {
         switch self {
@@ -67,29 +69,31 @@ public enum HTTPNetworkError: LocalizedError {
         case .encodingFailed:
             return NSLocalizedString("Error Found: Parameter Encoding failed.", comment: "")
         case .decodingFailed:
-            return NSLocalizedString("Error Found: Unable to Decode the data.", comment: "")
+            return NSLocalizedString("Error Found: Unable to Decode the data", comment: "")
         case .missingURL:
-            return NSLocalizedString("Error Found: The URL is nil.", comment: "")
+            return NSLocalizedString("Error Found: The URL is nil", comment: "")
         case .couldNotParse:
-            return NSLocalizedString("Error Found: Unable to parse the JSON response.", comment: "")
+            return NSLocalizedString("Error Found: Unable to parse the JSON response", comment: "")
         case .noData:
-            return NSLocalizedString("Error Found: The data from API is Nil.", comment: "")
+            return NSLocalizedString("Error Found: The data from API is Nil", comment: "")
         case .fragmentResponse:
-            return NSLocalizedString("Error Found: The API's response's body has fragments.", comment: "")
+            return NSLocalizedString("Error Found: The API's response's body has fragments", comment: "")
         case .unwrappingError:
-            return NSLocalizedString("Error Found: Unable to unwrape the data.", comment: "")
+            return NSLocalizedString("Error Found: Unable to unwrape the data", comment: "")
         case .dataTaskFailed:
-            return NSLocalizedString("Error Found: The Data Task object failed.", comment: "")
+            return NSLocalizedString("Error Found: The Data Task object failed", comment: "")
         case .authenticationError:
-            return NSLocalizedString("Error Found: You must be Authenticated.", comment: "")
+            return NSLocalizedString("Error Found: You must be Authenticated", comment: "")
         case .badRequest:
             return NSLocalizedString("Error Found: Bad Request", comment: "")
         case .pageNotFound:
-            return NSLocalizedString("Error Found: Page/Route rquested not found.", comment: "")
+            return NSLocalizedString("Error Found: Page/Route rquested not found", comment: "")
         case .failed:
             return NSLocalizedString("Error Found: Network Request failed", comment: "")
         case .serverSideError:
             return NSLocalizedString("Error Found: Server error", comment: "")
+        case .resourceAlreadyExists:
+            return NSLocalizedString("Error Found: Resource already exists", comment: "")
         }
     }
     

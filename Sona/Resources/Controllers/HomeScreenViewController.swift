@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var isPublicSwitch: UISwitch!
+    
+    let usersNetworkManager = UsersNetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +42,17 @@ class HomeScreenViewController: UIViewController {
         }
     }
     
-    @IBAction func isPublicChanged(_ sender: Any) {
-        
+    @IBAction func isPublicChanged(_ sender: UIButton) {
+        guard let firebaseUser = Auth.auth().currentUser else {
+            sender.isSelected = false
+            print("Could not get currently logged in user in HomeScreenViewController.isPublicChanged(_:)")
+            return
+        }
+        usersNetworkManager.set(isPublic: sender.isSelected, forUserFirebaseUID: firebaseUser.uid) { (_, error) in
+            if let error = error {
+                print(error)
+            }
+        }
     }
 
 }
