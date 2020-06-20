@@ -8,12 +8,15 @@
 
 enum UsernameError : Error {
     
-    case alreadyExists(message: String)
+    case alreadyExists(username: String)
+    case notPresent
     
     var localizedDescription: String {
         switch self {
-        case let .alreadyExists(message):
-            return message
+        case .alreadyExists(let username):
+            return "Username \(username) already exists"
+        case .notPresent:
+            return "Username is not present in user object"
         }
     }
     

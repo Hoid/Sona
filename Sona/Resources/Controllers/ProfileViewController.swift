@@ -19,19 +19,21 @@ class ProfileViewController : UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
-        guard let profile = ProfileDAO.getNonDefaultProfile() else {
-            print("Non-default profile could not be loaded from the database.")
+        guard let firebaseUser = Auth.auth().currentUser else {
+            print("Could not get currently logged in user in ProfileViewController.viewDidLoad()")
             return
         }
-        self.profile = profile
-        if let user = UserDAO.getUserFor(profile: self.profile!) {
+        do {
+            self.profile = try ProfileDAO.getProfileFor(userFirebaseUID: firebaseUser.uid)
+            let user = try UserDAO.getUserFor(firebaseUID: firebaseUser.uid)
+            profileImage.image = self.profile?.profileImage ?? UIImage(named: "EmptyProfileIcon")
             nameLabel.text = user.name
             usernameLabel.text = user.username
-        } else {
+        } catch {
             nameLabel.text = User.DEFAULT_NAME
             usernameLabel.text = User.DEFAULT_USERNAME
+            print(error.localizedDescription)
         }
-        profileImage.image = self.profile?.profileImage ?? UIImage(named: "EmptyProfileIcon")
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {

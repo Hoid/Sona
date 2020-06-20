@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-class Broadcast {
+struct Broadcast {
     
     var song: Song
     var user: User

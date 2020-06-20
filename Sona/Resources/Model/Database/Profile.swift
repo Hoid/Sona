@@ -8,17 +8,17 @@
 
 import GRDB
 
-class Profile : Record, CustomStringConvertible {
+public class Profile : Record, CustomStringConvertible {
     
     // MARK: Static members
     
     static let user = belongsTo(User.self,
-                                using: ForeignKey([Columns.user_id.rawValue], to: [User.Columns.id.rawValue]))
+                                using: ForeignKey([Columns.user_firebase_uid.rawValue], to: [User.Columns.firebase_uid.rawValue]))
     
     // MARK: Member variables
     
     private(set) var id: Int64!
-    var userId: Int64
+    var userFirebaseUID: String
     var profileImage: UIImage?
     
     // MARK: Computed properties
@@ -31,14 +31,14 @@ class Profile : Record, CustomStringConvertible {
         return self.profileImage != nil
     }
     
-    var description: String {
-        return "Profile = id: \(String(describing: self.id)), userId: \(self.userId), profileImage: \(self.profileImageExists)"
+    public var description: String {
+        return "Profile = id: \(String(describing: self.userFirebaseUID)), userFirebaseUID: \(self.userFirebaseUID), profileImage: \(self.profileImageExists)"
     }
     
     // MARK: Initializers
     
-    init(userId: Int64, profileImage: UIImage?) {
-        self.userId = userId
+    init(userFirebaseUID: String, profileImage: UIImage?) {
+        self.userFirebaseUID = userFirebaseUID
         self.profileImage = profileImage
         super.init()
     }
@@ -46,7 +46,7 @@ class Profile : Record, CustomStringConvertible {
     /// Creates a record from a database row
     required init(row: Row) {
         self.id = row[Columns.id]
-        self.userId = row[Columns.user_id]
+        self.userFirebaseUID = row[Columns.user_firebase_uid]
         if let profileImageBlob = row[Columns.profile_image] as? Data {
             self.profileImage = UIImage(data: profileImageBlob)
         } else {
@@ -58,25 +58,25 @@ class Profile : Record, CustomStringConvertible {
     // MARK: Overridden methods
     
     /// The values persisted in the database
-    override func encode(to container: inout PersistenceContainer) {
+    public override func encode(to container: inout PersistenceContainer) {
         container[Columns.id] = self.id
-        container[Columns.user_id] = self.userId
+        container[Columns.user_firebase_uid] = self.userFirebaseUID
         container[Columns.profile_image] = self.profileImage?.pngData()
     }
     
     /// Update record ID after a successful insertion
-    override func didInsert(with rowID: Int64, for column: String?) {
+    public override func didInsert(with rowID: Int64, for column: String?) {
         id = rowID
     }
     
     // MARK: Record properties
     
     /// The table name
-    override class var databaseTableName: String { "profile" }
+    public override class var databaseTableName: String { "profile" }
     
     /// The table columns
     enum Columns: String, ColumnExpression {
-        case id, profile_image, user_id
+        case id, user_firebase_uid, profile_image
     }
     
 }

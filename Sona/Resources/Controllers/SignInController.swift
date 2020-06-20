@@ -31,19 +31,45 @@ class SignInController : NSObject, FUIAuthDelegate {
         return authUI.authViewController()
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: FAUser?, error: Error?) {
+    func authUI(_ authUI: FUIAuth, didSignInWith firebaseUser: FAUser?, error: Error?) {
+        if let error = error {
+            // TODO: Present an alert to the user that there was an error and they should close the app and try to sign in again
+            fatalError("Could not sign in using Firebase. Error: \(error)")
+        }
         // create user in database without a username
-        guard let user = user else {
-            print("Could not create user from auth because user from Firebase is nil.")
+        guard let firebaseUser = firebaseUser else {
+            // TODO: Present an alert to the user that there was an error and they should close the app and try to sign in again
+            fatalError("Could not create user from auth because user from Firebase is nil.")
+        }
+        guard let email = firebaseUser.email, let name = firebaseUser.displayName else {
+            // TODO: Present an alert to the user that there was an error and they should close the app and try to sign in again
+            print("Could not create user from auth because either the email or displayName property wasn't present.")
             // show something to the user that says there was an error and to try again
             return
         }
-        guard let email = user.email, let name = user.displayName else {
-            print("Could not create user from auth because at least one user property wasn't present.")
-            // show something to the user that says there was an error and to try again
-            return
+        do {
+            let _ = try UserDAO.getUserFor(firebaseUID: firebaseUser.uid)
+        } catch UserError.notFound {
+            // attempt to create the user on the server, then in the local database
+            let newUser = User(firebaseUID: firebaseUser.uid, email: email, username: nil, name: name, isPublic: false)
+            UsersNetworkManager().createUser(user: newUser) { (userApiResponse, error) in
+                if let error = error {
+                    fatalError("Could not create user on the server. Error: \(error)")
+                }
+                do {
+                    try UserDAO.create(user: newUser)
+                    print("Created user in local database with firebaseUID \(newUser.firebaseUID)")
+                } catch let error as UserError {
+                    print(error.localizedDescription)
+                } catch {
+                    // DatabaseError.
+                    fatalError("Could not create user in the local database. Error: \(error)")
+                }
+            }
+        } catch {
+            // DatabaseError.
+            fatalError("Could not get user from local database. Error: \(error)")
         }
-        UserDAO.create(user: User(email: email, username: nil, name: name, firebaseUID: user.uid))
     }
     
     @available(iOS 13, *)

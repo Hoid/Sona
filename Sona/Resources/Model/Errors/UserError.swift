@@ -8,13 +8,21 @@
 
 enum UserError : Error {
     
-    case notFound(message: String)
-    case alreadyExists(message: String)
+    case notFound
+    case alreadyExists(firebaseUID: String)
+    case cannotCreate
+    case cannotFetch
     
     var localizedDescription: String {
         switch self {
-        case let .notFound(message), let .alreadyExists(message):
-            return message
+        case .notFound:
+            return "User not found"
+        case .alreadyExists:
+            return "User already exists"
+        case .cannotCreate:
+            return "Something went wrong while trying to create user"
+        case .cannotFetch:
+            return "Something went wrong while trying to fetch user"
         }
     }
     
