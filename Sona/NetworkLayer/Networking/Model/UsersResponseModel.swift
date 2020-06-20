@@ -51,3 +51,21 @@ extension UserApiResponse: Decodable {
     }
     
 }
+
+struct UserIsPublicApiResponse {
+    let isPublic: Bool
+}
+
+extension UserIsPublicApiResponse: Decodable {
+    
+    private enum UserIsPublicApiResponseCodingKeys: String, CodingKey {
+        case isPublic = "isPublic"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: UserIsPublicApiResponseCodingKeys.self)
+        
+        isPublic = try container.decode(Bool.self, forKey: .isPublic)
+    }
+    
+}

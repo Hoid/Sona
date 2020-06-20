@@ -50,10 +50,10 @@ class UsersNetworkManager : NetworkManager {
         
     }
     
-    func set(isPublic: Bool, forUserFirebaseUID userFirebaseUID: String, completion: @escaping (_ userApiResponse: UserApiResponse?, _ error: String?) -> ()) {
+    func set(isPublic: Bool, forUserFirebaseUID userFirebaseUID: String, completion: @escaping (_ userApiResponse: UserIsPublicApiResponse?, _ error: String?) -> ()) {
         
-        router.request(.setIsPublic(isPublic: isPublic, userFirebaseUID: userFirebaseUID)) { (_, response, error) in
-            self.handleResponse(data: nil, dataType: nil, response: response, error: error, completion: completion)
+        router.request(.setIsPublic(isPublic: isPublic, userFirebaseUID: userFirebaseUID)) { (data, response, error) in
+            self.handleResponse(data: data, dataType: UserIsPublicApiResponse.self, response: response, error: error, completion: completion)
         }
         
     }

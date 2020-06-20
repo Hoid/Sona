@@ -42,15 +42,25 @@ class HomeScreenViewController: UIViewController {
         }
     }
     
-    @IBAction func isPublicChanged(_ sender: UIButton) {
+    @IBAction func isPublicChanged(_ sender: UISwitch) {
         guard let firebaseUser = Auth.auth().currentUser else {
-            sender.isSelected = false
+            sender.isOn = false
             print("Could not get currently logged in user in HomeScreenViewController.isPublicChanged(_:)")
             return
         }
-        usersNetworkManager.set(isPublic: sender.isSelected, forUserFirebaseUID: firebaseUser.uid) { (_, error) in
+        usersNetworkManager.set(isPublic: sender.isOn, forUserFirebaseUID: firebaseUser.uid) { (userIsPublicApiResponse, error) in
             if let error = error {
                 print(error)
+                return
+            }
+            guard let userIsPublicApiResponse = userIsPublicApiResponse else {
+                print("Could not unwrap userIsPublicApiResponse in HomeScreenViewController.isPublicChanged(_:)")
+                return
+            }
+            do {
+                try UserDAO.setIsPublicFor(firebaseUID: firebaseUser.uid, isPublic: userIsPublicApiResponse.isPublic)
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }

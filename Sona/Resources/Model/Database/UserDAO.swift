@@ -119,7 +119,22 @@ class UserDAO : BaseDAO, DAO {
         try dbQueue.write({ (db) in
             let modified = try user.updateChanges(db)
             if !modified {
-                print("No updates necessary for user: \(user)")
+                print("No updates to username necessary for user: \(user)")
+            }
+        })
+    }
+    
+    /// Sets a user's isPublic field given its firebaseUID.
+    /// - parameter firebaseUID: The user's `firebaseUID` to query for.
+    /// - parameter isPublic: The user's `isPublic` value to set.
+    /// - throws: A DatabaseError whenever an SQLite error occurs.
+    public static func setIsPublicFor(firebaseUID: String, isPublic: Bool) throws {
+        let user = try getUserFor(firebaseUID: firebaseUID)
+        user.isPublic = isPublic
+        try dbQueue.write({ (db) in
+            let modified = try user.updateChanges(db)
+            if !modified {
+                print("No updates to isPublic necessary for user: \(user)")
             }
         })
     }
