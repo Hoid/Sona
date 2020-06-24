@@ -58,9 +58,20 @@
 		19FEC4302494306D00234FE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FEC42F2494306D00234FE9 /* NetworkManager.swift */; };
 		19FEC432249430F000234FE9 /* UsersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FEC431249430F000234FE9 /* UsersResponseModel.swift */; };
 		19FFE105249DD3F9007C1DB6 /* NetworkBodyParameterEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE104249DD3F9007C1DB6 /* NetworkBodyParameterEncodable.swift */; };
-		BBBECA1EE4079FCAAFDE5228 /* Pods_Sona.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F826473702701D4421C8E5 /* Pods_Sona.framework */; };
-		D57D521DC0B5AF1898CE0CD4 /* Pods_Sona_SonaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3B7766F4C5A17787BD562C /* Pods_Sona_SonaUITests.framework */; };
-		F711C24D59788D1325FBE702 /* Pods_SonaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AF01329857F91B5DFCF04E /* Pods_SonaTests.framework */; };
+		19FFE108249F93D9007C1DB6 /* MusicKitClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE107249F93D9007C1DB6 /* MusicKitClaims.swift */; };
+		19FFE10A249F94BD007C1DB6 /* AppleMusicKitNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE109249F94BD007C1DB6 /* AppleMusicKitNetworkManager.swift */; };
+		19FFE10C249F9526007C1DB6 /* AppleMusicKitApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE10B249F9526007C1DB6 /* AppleMusicKitApi.swift */; };
+		19FFE10E249F9794007C1DB6 /* AppleMusicKitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE10D249F9794007C1DB6 /* AppleMusicKitResponseModel.swift */; };
+		19FFE111249F9855007C1DB6 /* AppleMusicSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE110249F9855007C1DB6 /* AppleMusicSong.swift */; };
+		19FFE113249F9869007C1DB6 /* SpotifySong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE112249F9869007C1DB6 /* SpotifySong.swift */; };
+		19FFE115249FE7D3007C1DB6 /* AppleMusicPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE114249FE7D3007C1DB6 /* AppleMusicPlayerController.swift */; };
+		19FFE117249FECCE007C1DB6 /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE116249FECCE007C1DB6 /* AppleMusicManager.swift */; };
+		19FFE11924A19B5F007C1DB6 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE11824A19B5F007C1DB6 /* AuthorizationManager.swift */; };
+		19FFE11C24A19D0B007C1DB6 /* MusicPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE11B24A19D0B007C1DB6 /* MusicPlayerManager.swift */; };
+		19FFE11E24A2562B007C1DB6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE11D24A2562B007C1DB6 /* ImageCacheManager.swift */; };
+		19FFE12024A26C4F007C1DB6 /* AppleMusicAuthKey.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 19FFE11F24A26C4F007C1DB6 /* AppleMusicAuthKey.p8 */; };
+		19FFE12224A2DB75007C1DB6 /* MediaLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE12124A2DB75007C1DB6 /* MediaLibraryManager.swift */; };
+		86519F5AF6E50AD000ADBBA5 /* Pods_Sona.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1634252DEFE3B7C08D232B90 /* Pods-Sona.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona.release.xcconfig"; path = "Target Support Files/Pods-Sona/Pods-Sona.release.xcconfig"; sourceTree = "<group>"; };
 		1918A7FB2485C27F004DE142 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		1918A7FD2485C503004DE142 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1918A7FF2485E5FA004DE142 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -133,15 +145,21 @@
 		19FEC42F2494306D00234FE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		19FEC431249430F000234FE9 /* UsersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponseModel.swift; sourceTree = "<group>"; };
 		19FFE104249DD3F9007C1DB6 /* NetworkBodyParameterEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBodyParameterEncodable.swift; sourceTree = "<group>"; };
-		48AF01329857F91B5DFCF04E /* Pods_SonaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SonaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68D885EF202F1F3C04DA8A5E /* Pods-SonaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SonaTests.debug.xcconfig"; path = "Target Support Files/Pods-SonaTests/Pods-SonaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		76F76BF80E3BCD13D130066E /* Pods-Sona-SonaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona-SonaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		82261A4FE8B014B9E51A3218 /* Pods-Sona.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona.release.xcconfig"; path = "Target Support Files/Pods-Sona/Pods-Sona.release.xcconfig"; sourceTree = "<group>"; };
-		833D43D8902D1D40437C9DC3 /* Pods-Sona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona.debug.xcconfig"; path = "Target Support Files/Pods-Sona/Pods-Sona.debug.xcconfig"; sourceTree = "<group>"; };
-		9AC143C4CE842D3F45DA9CFA /* Pods-Sona-SonaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona-SonaUITests.release.xcconfig"; path = "Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D1AC9C4C49AD6FF4CA8DE048 /* Pods-SonaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SonaTests.release.xcconfig"; path = "Target Support Files/Pods-SonaTests/Pods-SonaTests.release.xcconfig"; sourceTree = "<group>"; };
-		DF3B7766F4C5A17787BD562C /* Pods_Sona_SonaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sona_SonaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2F826473702701D4421C8E5 /* Pods_Sona.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sona.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19FFE107249F93D9007C1DB6 /* MusicKitClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitClaims.swift; sourceTree = "<group>"; };
+		19FFE109249F94BD007C1DB6 /* AppleMusicKitNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicKitNetworkManager.swift; sourceTree = "<group>"; };
+		19FFE10B249F9526007C1DB6 /* AppleMusicKitApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicKitApi.swift; sourceTree = "<group>"; };
+		19FFE10D249F9794007C1DB6 /* AppleMusicKitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicKitResponseModel.swift; sourceTree = "<group>"; };
+		19FFE110249F9855007C1DB6 /* AppleMusicSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicSong.swift; sourceTree = "<group>"; };
+		19FFE112249F9869007C1DB6 /* SpotifySong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySong.swift; sourceTree = "<group>"; };
+		19FFE114249FE7D3007C1DB6 /* AppleMusicPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicPlayerController.swift; sourceTree = "<group>"; };
+		19FFE116249FECCE007C1DB6 /* AppleMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
+		19FFE11824A19B5F007C1DB6 /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
+		19FFE11B24A19D0B007C1DB6 /* MusicPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerManager.swift; sourceTree = "<group>"; };
+		19FFE11D24A2562B007C1DB6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		19FFE11F24A26C4F007C1DB6 /* AppleMusicAuthKey.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppleMusicAuthKey.p8; sourceTree = "<group>"; };
+		19FFE12124A2DB75007C1DB6 /* MediaLibraryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryManager.swift; sourceTree = "<group>"; };
+		63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sona.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3F572425D98DBC23C245CD2 /* Pods-Sona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona.debug.xcconfig"; path = "Target Support Files/Pods-Sona/Pods-Sona.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBBECA1EE4079FCAAFDE5228 /* Pods_Sona.framework in Frameworks */,
+				86519F5AF6E50AD000ADBBA5 /* Pods_Sona.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +175,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F711C24D59788D1325FBE702 /* Pods_SonaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57D521DC0B5AF1898CE0CD4 /* Pods_Sona_SonaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +247,7 @@
 				19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */,
 				19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */,
 				1918A7FF2485E5FA004DE142 /* ProfileViewController.swift */,
+				19FFE114249FE7D3007C1DB6 /* AppleMusicPlayerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -261,7 +278,7 @@
 				19C46B2724806428002537D5 /* SonaUITests */,
 				19C46B0124806427002537D5 /* Products */,
 				DC3A998F01D20B75372E6DF5 /* Pods */,
-				96F1AD9A863F046CD5799EF0 /* Frameworks */,
+				C3E21E5B465AD294E78A7A93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +295,7 @@
 		19C46B0224806427002537D5 /* Sona */ = {
 			isa = PBXGroup;
 			children = (
+				19FFE11F24A26C4F007C1DB6 /* AppleMusicAuthKey.p8 */,
 				19522C3A24873C710032B0C0 /* Sona.entitlements */,
 				19C46B37248065B1002537D5 /* NetworkLayer */,
 				19C46B38248065CD002537D5 /* Resources */,
@@ -326,6 +344,7 @@
 				19C46B0324806427002537D5 /* AppDelegate.swift */,
 				19C46B0524806427002537D5 /* SceneDelegate.swift */,
 				19C46B3924806606002537D5 /* Spinner.swift */,
+				19FFE11A24A19CF0007C1DB6 /* Managers */,
 				1946022B2484BCEF00D8FDCF /* Controllers */,
 				1946022E2484BD5900D8FDCF /* ViewCells */,
 				19C46B4124809559002537D5 /* Datasources */,
@@ -338,11 +357,12 @@
 		19C46B3C2480661A002537D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19522C502489C2530032B0C0 /* Errors */,
 				1918A7FA2485C268004DE142 /* Database */,
+				19FFE10F249F9839007C1DB6 /* Songs */,
+				19522C502489C2530032B0C0 /* Errors */,
 				19C46B4E248169C8002537D5 /* Broadcast.swift */,
-				19C46B5024816A0A002537D5 /* Song.swift */,
 				19522C45248843E00032B0C0 /* PopAnimator.swift */,
+				19FFE107249F93D9007C1DB6 /* MusicKitClaims.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				19FEC431249430F000234FE9 /* UsersResponseModel.swift */,
+				19FFE10D249F9794007C1DB6 /* AppleMusicKitResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				19FEC429249142FE00234FE9 /* UsersApi.swift */,
+				19FFE10B249F9526007C1DB6 /* AppleMusicKitApi.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -388,6 +410,7 @@
 			children = (
 				19FEC42F2494306D00234FE9 /* NetworkManager.swift */,
 				19FEC42D2494304B00234FE9 /* UsersNetworkManager.swift */,
+				19FFE109249F94BD007C1DB6 /* AppleMusicKitNetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -416,12 +439,32 @@
 			path = Encoding;
 			sourceTree = "<group>";
 		};
-		96F1AD9A863F046CD5799EF0 /* Frameworks */ = {
+		19FFE10F249F9839007C1DB6 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
-				E2F826473702701D4421C8E5 /* Pods_Sona.framework */,
-				DF3B7766F4C5A17787BD562C /* Pods_Sona_SonaUITests.framework */,
-				48AF01329857F91B5DFCF04E /* Pods_SonaTests.framework */,
+				19C46B5024816A0A002537D5 /* Song.swift */,
+				19FFE110249F9855007C1DB6 /* AppleMusicSong.swift */,
+				19FFE112249F9869007C1DB6 /* SpotifySong.swift */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		19FFE11A24A19CF0007C1DB6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				19FFE116249FECCE007C1DB6 /* AppleMusicManager.swift */,
+				19FFE11824A19B5F007C1DB6 /* AuthorizationManager.swift */,
+				19FFE11B24A19D0B007C1DB6 /* MusicPlayerManager.swift */,
+				19FFE12124A2DB75007C1DB6 /* MediaLibraryManager.swift */,
+				19FFE11D24A2562B007C1DB6 /* ImageCacheManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C3E21E5B465AD294E78A7A93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -429,12 +472,8 @@
 		DC3A998F01D20B75372E6DF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				833D43D8902D1D40437C9DC3 /* Pods-Sona.debug.xcconfig */,
-				82261A4FE8B014B9E51A3218 /* Pods-Sona.release.xcconfig */,
-				76F76BF80E3BCD13D130066E /* Pods-Sona-SonaUITests.debug.xcconfig */,
-				9AC143C4CE842D3F45DA9CFA /* Pods-Sona-SonaUITests.release.xcconfig */,
-				68D885EF202F1F3C04DA8A5E /* Pods-SonaTests.debug.xcconfig */,
-				D1AC9C4C49AD6FF4CA8DE048 /* Pods-SonaTests.release.xcconfig */,
+				B3F572425D98DBC23C245CD2 /* Pods-Sona.debug.xcconfig */,
+				1634252DEFE3B7C08D232B90 /* Pods-Sona.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -446,12 +485,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C46B2D24806428002537D5 /* Build configuration list for PBXNativeTarget "Sona" */;
 			buildPhases = (
-				7AFDD87D34E54DE543C2F326 /* [CP] Check Pods Manifest.lock */,
+				F1EDF8840D777D28270BEC4C /* [CP] Check Pods Manifest.lock */,
 				19C46AFC24806427002537D5 /* Sources */,
 				19C46AFD24806427002537D5 /* Frameworks */,
 				19C46AFE24806427002537D5 /* Resources */,
-				5D5E9EC6BF6B89B297166141 /* [CP] Embed Pods Frameworks */,
-				C66D0544FCE36F11AAC2F4FD /* [CP] Copy Pods Resources */,
+				CC0AB5F152C888940D473580 /* [CP] Embed Pods Frameworks */,
+				CA6CF326BD202053AD2B69A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,7 +505,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C46B3024806428002537D5 /* Build configuration list for PBXNativeTarget "SonaTests" */;
 			buildPhases = (
-				31978545701585A4D3395340 /* [CP] Check Pods Manifest.lock */,
 				19C46B1524806428002537D5 /* Sources */,
 				19C46B1624806428002537D5 /* Frameworks */,
 				19C46B1724806428002537D5 /* Resources */,
@@ -485,12 +523,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19C46B3324806428002537D5 /* Build configuration list for PBXNativeTarget "SonaUITests" */;
 			buildPhases = (
-				7AB8FB035522DE5FBCBFB2DA /* [CP] Check Pods Manifest.lock */,
 				19C46B2024806428002537D5 /* Sources */,
 				19C46B2124806428002537D5 /* Frameworks */,
 				19C46B2224806428002537D5 /* Resources */,
-				2707E7CBFA88C7448E98602D /* [CP] Embed Pods Frameworks */,
-				5EC3EEC5213DC068DEAE3806 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -552,6 +587,7 @@
 			files = (
 				19C46B1324806428002537D5 /* LaunchScreen.storyboard in Resources */,
 				19522C4924884F3F0032B0C0 /* GoogleService-Info.plist in Resources */,
+				19FFE12024A26C4F007C1DB6 /* AppleMusicAuthKey.p8 in Resources */,
 				19C46B1024806428002537D5 /* Assets.xcassets in Resources */,
 				19C46B0B24806427002537D5 /* Main.storyboard in Resources */,
 			);
@@ -576,46 +612,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2707E7CBFA88C7448E98602D /* [CP] Embed Pods Frameworks */ = {
+		CA6CF326BD202053AD2B69A2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		31978545701585A4D3395340 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SonaTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D5E9EC6BF6B89B297166141 /* [CP] Embed Pods Frameworks */ = {
+		CC0AB5F152C888940D473580 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -632,46 +646,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EC3EEC5213DC068DEAE3806 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sona-SonaUITests/Pods-Sona-SonaUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AB8FB035522DE5FBCBFB2DA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sona-SonaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AFDD87D34E54DE543C2F326 /* [CP] Check Pods Manifest.lock */ = {
+		F1EDF8840D777D28270BEC4C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -693,23 +668,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C66D0544FCE36F11AAC2F4FD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sona/Pods-Sona-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -719,17 +677,24 @@
 			files = (
 				19FEC4302494306D00234FE9 /* NetworkManager.swift in Sources */,
 				19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */,
+				19FFE10E249F9794007C1DB6 /* AppleMusicKitResponseModel.swift in Sources */,
+				19FFE117249FECCE007C1DB6 /* AppleMusicManager.swift in Sources */,
 				19C46B4D248168E4002537D5 /* BroadcastSearchResultsTableViewDatasource.swift in Sources */,
 				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
 				1918A7FC2485C27F004DE142 /* DAO.swift in Sources */,
 				19FEC41D249142F000234FE9 /* Router.swift in Sources */,
 				19FEC425249142F700234FE9 /* URLParameterEncoder.swift in Sources */,
 				19C46B0824806427002537D5 /* HomeScreenViewController.swift in Sources */,
+				19FFE111249F9855007C1DB6 /* AppleMusicSong.swift in Sources */,
 				19FEC420249142F000234FE9 /* HTTPTask.swift in Sources */,
+				19FFE11E24A2562B007C1DB6 /* ImageCacheManager.swift in Sources */,
 				19FEC3F2248DE90200234FE9 /* UserError.swift in Sources */,
+				19FFE115249FE7D3007C1DB6 /* AppleMusicPlayerController.swift in Sources */,
 				1918A7FE2485C503004DE142 /* User.swift in Sources */,
+				19FFE12224A2DB75007C1DB6 /* MediaLibraryManager.swift in Sources */,
 				19522C522489C2710032B0C0 /* UsernameError.swift in Sources */,
 				19C46B0424806427002537D5 /* AppDelegate.swift in Sources */,
+				19FFE11924A19B5F007C1DB6 /* AuthorizationManager.swift in Sources */,
 				19522C3C2487ABCB0032B0C0 /* SignInController.swift in Sources */,
 				19A92E05249D1E410016AF27 /* ProfileError.swift in Sources */,
 				19FEC41C249142F000234FE9 /* HTTPMethod.swift in Sources */,
@@ -741,7 +706,9 @@
 				19FEC3F724908BE600234FE9 /* ProfileDAO.swift in Sources */,
 				19FEC41F249142F000234FE9 /* EndPointType.swift in Sources */,
 				19522C46248843E00032B0C0 /* PopAnimator.swift in Sources */,
+				19FFE11C24A19D0B007C1DB6 /* MusicPlayerManager.swift in Sources */,
 				1918A8022485E7C7004DE142 /* Profile.swift in Sources */,
+				19FFE108249F93D9007C1DB6 /* MusicKitClaims.swift in Sources */,
 				1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */,
 				19C46B0624806427002537D5 /* SceneDelegate.swift in Sources */,
 				19FEC432249430F000234FE9 /* UsersResponseModel.swift in Sources */,
@@ -750,8 +717,11 @@
 				1918A8002485E5FA004DE142 /* ProfileViewController.swift in Sources */,
 				19FEC427249142F700234FE9 /* ParameterEncoding.swift in Sources */,
 				19FEC3F524908B4600234FE9 /* UserDAO.swift in Sources */,
+				19FFE10C249F9526007C1DB6 /* AppleMusicKitApi.swift in Sources */,
+				19FFE113249F9869007C1DB6 /* SpotifySong.swift in Sources */,
 				19C46B3A24806606002537D5 /* Spinner.swift in Sources */,
 				19FEC42E2494304B00234FE9 /* UsersNetworkManager.swift in Sources */,
+				19FFE10A249F94BD007C1DB6 /* AppleMusicKitNetworkManager.swift in Sources */,
 				19FEC42A249142FE00234FE9 /* UsersApi.swift in Sources */,
 				19FFE105249DD3F9007C1DB6 /* NetworkBodyParameterEncodable.swift in Sources */,
 				19C46B4F248169C8002537D5 /* Broadcast.swift in Sources */,
@@ -864,7 +834,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -918,7 +888,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -930,13 +900,14 @@
 		};
 		19C46B2E24806428002537D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 833D43D8902D1D40437C9DC3 /* Pods-Sona.debug.xcconfig */;
+			baseConfigurationReference = B3F572425D98DBC23C245CD2 /* Pods-Sona.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sona/Sona.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3MDBDHR5T;
 				INFOPLIST_FILE = Sona/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -944,19 +915,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.audire.Sona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		19C46B2F24806428002537D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82261A4FE8B014B9E51A3218 /* Pods-Sona.release.xcconfig */;
+			baseConfigurationReference = 1634252DEFE3B7C08D232B90 /* Pods-Sona.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sona/Sona.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3MDBDHR5T;
 				INFOPLIST_FILE = Sona/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -964,19 +936,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.audire.Sona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		19C46B3124806428002537D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68D885EF202F1F3C04DA8A5E /* Pods-SonaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SonaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -992,13 +963,12 @@
 		};
 		19C46B3224806428002537D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1AC9C4C49AD6FF4CA8DE048 /* Pods-SonaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SonaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1014,11 +984,11 @@
 		};
 		19C46B3424806428002537D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76F76BF80E3BCD13D130066E /* Pods-Sona-SonaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SonaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1034,11 +1004,11 @@
 		};
 		19C46B3524806428002537D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AC143C4CE842D3F45DA9CFA /* Pods-Sona-SonaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SonaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

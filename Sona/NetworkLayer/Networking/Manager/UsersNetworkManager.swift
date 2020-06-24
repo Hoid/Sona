@@ -58,37 +58,4 @@ class UsersNetworkManager : NetworkManager {
         
     }
     
-    // This generic method helps reduce duplicated code, since this code used to be repeated in all of the above methods
-    private func handleResponse<T: Decodable>(data: Data?, dataType: T.Type?, response: URLResponse?, error: Error?, completion: @escaping (T?, _ error: String?) -> ()) {
-        if error != nil {
-            completion(nil, "Please check your network connection or server status.")
-        }
-
-        if let response = response as? HTTPURLResponse {
-            let result = self.parseResponseStatusCode(response)
-            switch result {
-            case .success:
-                guard let responseData = data else {
-                    // still a success case, just with only a response status and no response body
-                    completion(nil, nil)
-                    return
-                }
-                do {
-                    if let dataType = dataType {
-                        let apiResponse = try JSONDecoder().decode(dataType, from: responseData)
-                        completion(apiResponse, nil)
-                    } else {
-                        // still a success case, just with only a response status and no response body
-                        completion(nil, nil)
-                    }
-                } catch {
-                    print(error)
-                    completion(nil, HTTPNetworkError.decodingFailed.errorDescription)
-                }
-            case .failure(let networkFailureError):
-                completion(nil, networkFailureError.localizedDescription)
-            }
-        }
-    }
-    
 }

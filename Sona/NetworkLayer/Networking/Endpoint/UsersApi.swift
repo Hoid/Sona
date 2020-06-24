@@ -17,14 +17,14 @@ public enum UsersApi {
     case newUser(user: User)
 }
 
-extension UsersApi: EndPointType {
+extension UsersApi : EndPointType {
 
     var environmentBaseURL : String {
         let networkManager = UsersNetworkManager()
         switch networkManager.environment {
-        case .production: return "http://sona-server.us-east-1.elasticbeanstalk.com/"
-        case .qa: return "http://localhost:5000/"
-        case .staging: return "http://sona-server.us-east-1.elasticbeanstalk.com/"
+        case .production:   return "http://sona-server.us-east-1.elasticbeanstalk.com/"
+        case .qa:           return "http://localhost:5000/"
+        case .staging:      return "http://sona-server.us-east-1.elasticbeanstalk.com/"
         }
     }
     

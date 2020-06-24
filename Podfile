@@ -1,8 +1,7 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'Sona' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  # Must have the following line for Pods to work with Swift
   use_frameworks!
 
   # Pods for Sona
@@ -11,14 +10,6 @@ target 'Sona' do
   pod 'Firebase/Analytics'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/OAuth'
-  
-  target 'SonaTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SonaUITests' do
-    # Pods for testing
-  end
+  pod 'SwiftJWT', '3.5.3' 
 
 end

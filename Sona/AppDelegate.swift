@@ -13,12 +13,30 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let usersNetworkManager = UsersNetworkManager()
+    /// The instance of `AuthorizationManager` which is responsible for managing authorization for the application.
+    lazy var authorizationManager: AuthorizationManager = {
+        return AuthorizationManager(appleMusicManager: self.appleMusicManager)
+    }()
+    
+    /// The instance of `MediaLibraryManager` which manages the `MPPMediaPlaylist` this application creates.
+    lazy var mediaLibraryManager: MediaLibraryManager = {
+        return MediaLibraryManager(authorizationManager: self.authorizationManager)
+    }()
+    
+    /// The instance of `AppleMusicManager` which handles making web service calls to Apple Music Web Services.
+    var appleMusicManager = AppleMusicManager()
+    
+    /// The instance of `MusicPlayerManager` which handles media playback.
+    var musicPlayerManager = MusicPlayerManager()
+    
+    public var appleMusicController = AppleMusicManager()
+    
+    private let usersNetworkManager = UsersNetworkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FirebaseApp.configure()
         try! BaseDAO.setup()
+        appleMusicController.initAuthorizationStatus()
         return true
     }
 
