@@ -33,6 +33,7 @@ public class User : Record, NetworkBodyParameterEncodable, CustomStringConvertib
         return "User = firebaseUID: \(firebaseUID), email: \(email), username: \(String(describing: username)), name: \(String(describing: name)), isPublic: \(isPublic)"
     }
     
+    // TODO: Maybe move this to the UsersNetworkManager or something
     var bodyParameters: Parameters {
         var parameters: Parameters = [
             "firebaseUID" : firebaseUID,

@@ -106,6 +106,7 @@ class ChooseUsernameViewController : UIViewController {
             let user = User(firebaseUID: firebaseUser.uid, email: email, username: username, name: name, isPublic: false)
             
             self.showSpinner(onView: self.view)
+            // TODO: Move the check for if a user exists into the checkUsernameUniquenessButtonPressed(_:) method
             usersNetworkManager.createUser(user: user) { (userApiResponse, error) in
                 if error != nil {
                     self.removeSpinner()

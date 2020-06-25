@@ -186,6 +186,7 @@
 		19FFE13E24A4661B007C1DB6 /* AMSongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMSongModel.swift; sourceTree = "<group>"; };
 		19FFE14024A4663B007C1DB6 /* AMLibrarySongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMLibrarySongResponseModel.swift; sourceTree = "<group>"; };
 		19FFE14224A46647007C1DB6 /* AMLibrarySongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMLibrarySongModel.swift; sourceTree = "<group>"; };
+		19FFE14424A50499007C1DB6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sona.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F572425D98DBC23C245CD2 /* Pods-Sona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sona.debug.xcconfig"; path = "Target Support Files/Pods-Sona/Pods-Sona.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -333,6 +334,7 @@
 				19522C4824884F3F0032B0C0 /* GoogleService-Info.plist */,
 				19C46B1424806428002537D5 /* Info.plist */,
 				19C46B0C24806427002537D5 /* Sona.xcdatamodeld */,
+				19FFE14424A50499007C1DB6 /* README.md */,
 			);
 			path = Sona;
 			sourceTree = "<group>";

@@ -12,7 +12,7 @@ class BaseDAO {
     
     static var dbQueue: DatabaseQueue!
     
-    public static func setup() throws {
+    public static func setupDAOs() throws {
         setupDatabase()
         UserDAO.setupTable()
         ProfileDAO.setupTable()
