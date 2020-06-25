@@ -31,4 +31,15 @@ The only methods in individual DAOs that do not throw Errors are the `create*Tab
 
 Individual DTOs that define what the database object looks like are subclasses of the GRDB `Record` class. For example, `User` defines all of the necessary methods for database access and insertion to work. See the GRDB documentation at the link above for more information.
 
+## The Future of Sona
 
+### Features
+
+- Allow users to join someone's "broadcast" at any time they are public and listen to whatever music they are listening to and leave at any time. 
+- Allow users to browse broadcasts that are public and find friends' broadcasts easily. Friends have to simply enter the app and start "broadcasting" and at least have the app in the background before someone can listen to what they are listening to.
+- Allow users to, while listening to a broadcast, add any songs queued, played, suggested, or currently playing to their library in the streaming service of their choice (Apple Music or Spotify).
+- Allow users to easily make a playlist with all of the songs in common between multiple users' libraries, so that if you are at a party or on a car ride, you can easily play music you know everyone will like.
+- Allow users to join a "party", which is a broadcast where the music played is suggested by the listeners. Listeners are able to vote on which song to play next by upvoting a song rec. Note: Parties will need to be carefully created when you expect more than just good actors. There needs to be the ability to kick people (as a moderator) and the ability to prevent brigading somehow, like preventing people from coming into a party too fast and setting a timer for users before they can contribute or vote.
+- Allow users to share songs with friends. Friends get a notification and can see the song or playlist by clicking on the notification. You are able to directly add a song or playlist to your library if you like it.
+- Allow users to "plublicize" what songs you listen to. If you are in "public" mode, whatever songs you listen to by default go on your feed and people can easily listen to a playlist of your recently listened to songs.
+- Thinking of more features all the time!
