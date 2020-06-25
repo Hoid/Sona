@@ -8,7 +8,8 @@ Welcome to the documentation for Sona! This documentation will show you how to s
 2. Open the workspace (`.xcworkspace` file) in XCode, *not* the project file (`.xcodeproj`). This is because CocoaPods doesn't work when you just open the project file.
 3. Navigate to the root Sona directory for the repo, ensure you have CocoaPods installed, and run `pod install`
 4. Assuming all goes well, you should be able to build the project in XCode now. If you have problems building, you can open up an issue ticket on Github and I'll look into helping you get set up.
-5. You can run the project in the simulator, but you'll get errors when doing certain things because you can't make calls to the device's Apple Music Library from the simulator (there's no library to query from). As a result you have to run Sona on a physical device to test all of the features. 
+5. Message me directly for the AppleMusicAuthKey.p8 file :)
+6. You can run the project in the simulator, but you'll get errors when doing certain things because you can't make calls to the device's Apple Music Library from the simulator (there's no library to query from). As a result you have to run Sona on a physical device to test all of the features. 
 
 ## Methodology
 

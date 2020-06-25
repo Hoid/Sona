@@ -302,6 +302,7 @@
 		19C46AF724806427002537D5 = {
 			isa = PBXGroup;
 			children = (
+				19FFE14424A50499007C1DB6 /* README.md */,
 				19C46B0224806427002537D5 /* Sona */,
 				19C46B1C24806428002537D5 /* SonaTests */,
 				19C46B2724806428002537D5 /* SonaUITests */,
@@ -334,7 +335,6 @@
 				19522C4824884F3F0032B0C0 /* GoogleService-Info.plist */,
 				19C46B1424806428002537D5 /* Info.plist */,
 				19C46B0C24806427002537D5 /* Sona.xcdatamodeld */,
-				19FFE14424A50499007C1DB6 /* README.md */,
 			);
 			path = Sona;
 			sourceTree = "<group>";
