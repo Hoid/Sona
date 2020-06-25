@@ -70,17 +70,22 @@ extension UsersApi : EndPointType {
     var task: HTTPTask {
         switch self {
         case .getUsers, .getPublicUsers, .getUser:
-            return .requestWithParameters(bodyParameters: nil, urlParameters: nil)
+            return .requestWithParametersAndHeaders(bodyParameters: nil, urlParameters: nil, headers: headers)
         case .setIsPublic(let isPublic, _):
-            return .requestWithParameters(bodyParameters: ["isPublic" : isPublic], urlParameters: nil)
+            return .requestWithParametersAndHeaders(bodyParameters: ["isPublic" : isPublic], urlParameters: nil, headers: headers)
         case .newUser(let user):
-            return .requestWithParameters(bodyParameters: user.bodyParameters, urlParameters: nil)
+            return .requestWithParametersAndHeaders(bodyParameters: user.bodyParameters, urlParameters: nil, headers: headers)
         case .putUser(let user):
-            return .requestWithParameters(bodyParameters: user.bodyParameters, urlParameters: nil)
+            return .requestWithParametersAndHeaders(bodyParameters: user.bodyParameters, urlParameters: nil, headers: headers)
         }
     }
 
     var headers: HTTPHeaders? {
-        return nil
+        let username = "admin"
+        let password = "passcode"
+        let loginData = String(format: "%@:%@", username, password).data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let authString = "Basic \(base64LoginString)"
+        return ["Authorization" : authString]
     }
 }

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// The instance of `AuthorizationManager` which is responsible for managing authorization for the application.
     lazy var authorizationManager: AuthorizationManager = {
-        return AuthorizationManager(appleMusicManager: self.appleMusicManager)
+        return AuthorizationManager(appleMusicNetworkManager: self.appleMusicNetworkManager)
     }()
     
     /// The instance of `MediaLibraryManager` which manages the `MPPMediaPlaylist` this application creates.
@@ -23,20 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return MediaLibraryManager(authorizationManager: self.authorizationManager)
     }()
     
-    /// The instance of `AppleMusicManager` which handles making web service calls to Apple Music Web Services.
-    var appleMusicManager = AppleMusicManager()
+    /// The instance of `AppleMusicNetworkManager` which handles making web service calls to Apple Music Web Services.
+    var appleMusicNetworkManager = AppleMusicNetworkManager()
     
     /// The instance of `MusicPlayerManager` which handles media playback.
     var musicPlayerManager = MusicPlayerManager()
-    
-    public var appleMusicController = AppleMusicManager()
-    
+        
     private let usersNetworkManager = UsersNetworkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         try! BaseDAO.setup()
-        appleMusicController.initAuthorizationStatus()
+        authorizationManager.requestCloudServiceAuthorization()
         return true
     }
 
@@ -73,5 +71,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension UIViewController {
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
 }
 

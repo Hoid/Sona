@@ -10,7 +10,7 @@ import Foundation
 
 class UsersNetworkManager : NetworkManager {
     
-    var environment: NetworkEnvironment = NetworkEnvironment.qa
+    var environment: NetworkEnvironment = NetworkEnvironment.staging
     var router = Router<UsersApi>()
     
     func getEnvironment() -> NetworkEnvironment {

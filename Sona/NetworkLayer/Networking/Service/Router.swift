@@ -16,10 +16,12 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         
         let session = URLSession.shared
         do {
-            let request = try self.buildRequest(from: route).log() // .log() prints the request to the console
+            let request = try self.buildRequest(from: route)
             self.task = session.dataTask(with: request, completionHandler: {
                 data, response, error in
-                print("-------- URLResponse --------")
+                let response = response as? HTTPURLResponse
+                request.log()
+                response?.log()
                 data?.log()
                 completion(data, response, error)
             })
@@ -35,14 +37,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
         
         request.httpMethod = route.httpMethod.rawValue
-        
-        // set Authentication header value for every request
-        let username = "admin"
-        let password = "passcode"
-        let loginData = String(format: "%@:%@", username, password).data(using: String.Encoding.utf8)!
-        let base64LoginString = loginData.base64EncodedString()
-        let authString = "Basic \(base64LoginString)"
-        request.setValue(authString, forHTTPHeaderField: "Authorization")
     
         switch route.task {
         case .request:

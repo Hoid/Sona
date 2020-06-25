@@ -1,5 +1,5 @@
 //
-//  AppleMusicKitNetworkManager.swift
+//  AppleMusicNetworkManager.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 6/21/20.
@@ -22,7 +22,7 @@ class AppleMusicNetworkManager : NetworkManager {
     
     /// Returns the developer token for use in Apple Music API calls.
     /// This is a relatively fast operation to getting the user token. Do no cache the developer token.
-    func fetchDeveloperToken() -> String? {
+    func fetchDeveloperToken() -> String {
         let jwtHeader = Header(kid: "99JWRTYD4C")
         let jwtClaims = ClaimsStandardJWT(iss: "V3MDBDHR5T", exp: Date(timeIntervalSinceNow: 3600), iat: Date())
         var jwt = JWT(header: jwtHeader, claims: jwtClaims)
@@ -37,14 +37,12 @@ class AppleMusicNetworkManager : NetworkManager {
         }
     }
     
-    func getAllSongsInLibrary(completion: @escaping (_ appleMusicSongsApiResponse: AppleMusicSongsApiResponse?, _ error: String?) -> ()) {
+    func getAllSongsInLibrary(completion: @escaping (_ appleMusicSongsApiResponse: AMLibrarySongResponse?, _ error: String?) -> ()) {
         
         router.request(.getAllSongsInLibrary) { data, response, error in
-            self.handleResponse(data: data, dataType: AppleMusicSongsApiResponse.self, response: response, error: error, completion: completion)
+            self.handleResponse(data: data, dataType: AMLibrarySongResponse.self, response: response, error: error, completion: completion)
         }
         
     }
-    
-    
     
 }

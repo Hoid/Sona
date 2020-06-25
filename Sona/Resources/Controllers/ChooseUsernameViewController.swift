@@ -120,6 +120,7 @@ class ChooseUsernameViewController : UIViewController {
                 self.createLocalProfileIfNotExistsFor(user: newUser)
                 self.removeSpinner()
             }
+            
         } catch {
             // DatabaseError; quit the application to signify unrecoverable error
             fatalError("Could not get user for firebaseUID \(firebaseUser.uid). Error: \(error)")

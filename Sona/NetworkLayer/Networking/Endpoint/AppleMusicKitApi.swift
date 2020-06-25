@@ -17,7 +17,7 @@ public enum AppleMusicKitApi {
 extension AppleMusicKitApi : EndPointType {
 
     var environmentBaseURL : String {
-        let networkManager = AppleMusicKitNetworkManager()
+        let networkManager = AppleMusicNetworkManager()
         switch networkManager.environment {
         case .production:   return "https://api.music.apple.com/v1/"
         case .qa:           return "https://api.music.apple.com/v1/"
@@ -52,6 +52,7 @@ extension AppleMusicKitApi : EndPointType {
     }
 
     var headers: HTTPHeaders? {
-        return nil
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.authorizationManager.authHeader
     }
 }

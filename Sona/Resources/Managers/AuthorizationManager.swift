@@ -29,43 +29,45 @@ class AuthorizationManager: NSObject {
     /// The instance of `SKCloudServiceController` that will be used for querying the available `SKCloudServiceCapability` and Storefront Identifier.
     let cloudServiceController = SKCloudServiceController()
     
-    /// The instance of `AppleMusicManager` that will be used for querying storefront information and user token.
-    let appleMusicManager: AppleMusicManager
+    /// The instance of `AppleMusicNetworkManager` that will be used for querying storefront information and user token.
+    let appleMusicNetworkManager: AppleMusicNetworkManager
     
-    /// The current set of `SKCloudServiceCapability` that the sample can currently use.
+    /// The current set of `SKCloudServiceCapability`s that the sample can currently use.
     var cloudServiceCapabilities = SKCloudServiceCapability()
     
     /// The current set of two letter country code associated with the currently authenticated iTunes Store account.
     var cloudServiceStorefrontCountryCode = ""
     
+    /// The authorization header to be used in API requests to the Apple Music API.
+    var authHeader: HTTPHeaders?
+    
     /// The Music User Token associated with the currently signed in iTunes Store account.
-    var userToken: String!
+    private var userToken: String?
     
     // MARK: Initialization
     
-    init(appleMusicManager: AppleMusicManager) {
-        self.appleMusicManager = appleMusicManager
+    init(appleMusicNetworkManager: AppleMusicNetworkManager) {
+        self.appleMusicNetworkManager = appleMusicNetworkManager
         
         super.init()
         
         let notificationCenter = NotificationCenter.default
         
         /*
-         It is important that your application listens to the `SKCloudServiceCapabilitiesDidChangeNotification` and
+         It is important that the application listens to the `SKCloudServiceCapabilitiesDidChangeNotification` and
          `SKStorefrontCountryCodeDidChangeNotification` notifications so that your application can update its state and functionality
          when these values change if needed.
         */
-        
         notificationCenter.addObserver(self,
                                        selector: #selector(requestCloudServiceCapabilities),
                                        name: .SKCloudServiceCapabilitiesDidChange,
                                        object: nil)
-        if #available(iOS 11.0, *) {
-            notificationCenter.addObserver(self,
-                                           selector: #selector(requestStorefrontCountryCode),
-                                           name: .SKStorefrontCountryCodeDidChange,
-                                           object: nil)
-        }
+        notificationCenter.addObserver(self,
+                                       selector: #selector(requestStorefrontCountryCode),
+                                       name: .SKStorefrontCountryCodeDidChange,
+                                       object: nil)
+        
+        requestCloudServiceAuthorization()
         
         /*
          If the application has already been authorized in a previous run or manually by the user then it can request
@@ -74,13 +76,15 @@ class AuthorizationManager: NSObject {
         if SKCloudServiceController.authorizationStatus() == .authorized {
             requestCloudServiceCapabilities()
             
-            /// Retrieve the Music User Token for use in the application if it was stored from a previous run.
+            // Retrieve the Music User Token  for use in the application if it was stored from a previous run.
             if let token = UserDefaults.standard.string(forKey: AuthorizationManager.userTokenUserDefaultsKey) {
                 userToken = token
             } else {
-                /// The token was not stored previously then request one.
+                // If the token was not stored previously then request one.
                 requestUserToken()
             }
+            
+            initAuthHeader()
         }
     }
     
@@ -89,11 +93,32 @@ class AuthorizationManager: NSObject {
         let notificationCenter = NotificationCenter.default
         
         notificationCenter.removeObserver(self, name: .SKCloudServiceCapabilitiesDidChange, object: nil)
+        notificationCenter.removeObserver(self, name: .SKStorefrontCountryCodeDidChange, object: nil)
+    }
+    
+    private func initAuthHeader() {
         
-        if #available(iOS 11.0, *) {
-            notificationCenter.removeObserver(self, name: .SKStorefrontCountryCodeDidChange, object: nil)
+        let developerToken = appleMusicNetworkManager.fetchDeveloperToken()
+        let authToken = getUserToken()
+        self.authHeader = [
+            "Authorization" : "Bearer \(developerToken)",
+            "Music-User-Token" : authToken
+        ]
+        print("Auth Header = \(self.authHeader ?? ["no data" : "no data"])")
+        
+    }
+    
+    private func getUserToken() -> String {
+        if let userToken = self.userToken {
+            return userToken
+        } else {
+            requestUserToken()
+            if let userToken = self.userToken {
+                return userToken
+            } else {
+                fatalError("Could not return user token even after requesting a new one from Apple.")
+            }
         }
-        
     }
     
     // MARK: Authorization Request Methods
@@ -103,7 +128,10 @@ class AuthorizationManager: NSObject {
          An application should only ever call `SKCloudServiceController.requestAuthorization(_:)` when their
          current authorization is `SKCloudServiceAuthorizationStatusNotDetermined`
          */
-        guard SKCloudServiceController.authorizationStatus() == .notDetermined else { return }
+        guard SKCloudServiceController.authorizationStatus() == .notDetermined else {
+            print("User has already given/rejected cloud service authorization.")
+            return
+        }
         
         /*
          `SKCloudServiceController.requestAuthorization(_:)` triggers a prompt for the user asking if they wish to allow the application
@@ -118,6 +146,7 @@ class AuthorizationManager: NSObject {
         SKCloudServiceController.requestAuthorization { [weak self] (authorizationStatus) in
             switch authorizationStatus {
             case .authorized:
+                print("Successfully gained cloud service authorization")
                 self?.requestCloudServiceCapabilities()
                 self?.requestUserToken()
             default:
@@ -179,21 +208,20 @@ class AuthorizationManager: NSObject {
             NotificationCenter.default.post(name: AuthorizationManager.cloudServiceDidUpdateNotification, object: nil)
         }
         
-        if SKCloudServiceController.authorizationStatus() == .authorized {
-            cloudServiceController.requestStorefrontCountryCode(completionHandler: completionHandler)
-        } else {
-            determineRegionWithDeviceLocale(completion: completionHandler)
+        guard SKCloudServiceController.authorizationStatus() == .authorized else {
+            print("App does not have Apple Music authorization. Could not request storefront country code.")
+            return
         }
+        cloudServiceController.requestStorefrontCountryCode(completionHandler: completionHandler)
     }
     
     func requestUserToken() {
-        guard let developerToken = appleMusicManager.fetchDeveloperToken() else {
-            return
-        }
+        
+        let developerToken = appleMusicNetworkManager.fetchDeveloperToken()
         
         if SKCloudServiceController.authorizationStatus() == .authorized {
             
-            let completionHandler: (String?, Error?) -> Void = { [weak self] (token, error) in
+            cloudServiceController.requestUserToken(forDeveloperToken: developerToken) { (token, error) in
                 guard error == nil else {
                     print("An error occurred when requesting user token: \(error!.localizedDescription)")
                     return
@@ -204,7 +232,7 @@ class AuthorizationManager: NSObject {
                     return
                 }
                 
-                self?.userToken = token
+                self.userToken = token
                 
                 /// Store the Music User Token for future use in your application.
                 let userDefaults = UserDefaults.standard
@@ -212,15 +240,15 @@ class AuthorizationManager: NSObject {
                 userDefaults.set(token, forKey: AuthorizationManager.userTokenUserDefaultsKey)
                 userDefaults.synchronize()
                 
-                if self?.cloudServiceStorefrontCountryCode == "" {
-                    self?.requestStorefrontCountryCode()
+                if self.cloudServiceStorefrontCountryCode == "" {
+                    self.requestStorefrontCountryCode()
                 }
                 
                 NotificationCenter.default.post(name: AuthorizationManager.cloudServiceDidUpdateNotification, object: nil)
             }
             
-            cloudServiceController.requestUserToken(forDeveloperToken: developerToken, completionHandler: completionHandler)
         }
+        
     }
     
 }

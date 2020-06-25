@@ -40,6 +40,18 @@ class HomeScreenViewController: UIViewController {
             }
             self.removeSpinner()
         }
+        appDelegate.appleMusicNetworkManager.getAllSongsInLibrary { (appleMusicResponseRoot, error) in
+            if let error = error {
+                print(error)
+                self.removeSpinner()
+                return
+            }
+            guard let responseRoot = appleMusicResponseRoot else {
+                print("Could not unwrap appleMusicResponseRoot in HomeScreenViewController.viewDidLoad()")
+                return
+            }
+            print("First SongID: \(responseRoot.data?.first?.id ?? "no data")")
+        }
     }
     
     @IBAction func isPublicChanged(_ sender: UISwitch) {

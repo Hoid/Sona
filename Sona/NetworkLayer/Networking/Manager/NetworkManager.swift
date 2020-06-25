@@ -152,12 +152,18 @@ enum Result<T> {
 }
 
 extension URLRequest {
-    public func log() -> Self {
+    public func log() {
         print("-------- URLRequest --------")
         print("\(self.httpMethod ?? "NO HTTP METHOD") \(self)")
         print("body: \n \(self.httpBody?.debugDescription ?? "none")")
         print("headers: \n \(self.allHTTPHeaderFields ?? [String:String]())")
-        return self
+    }
+}
+
+extension HTTPURLResponse {
+    public func log() {
+        print("-------- URLResponse --------")
+        print("status: \n \(self.statusCode)")
     }
 }
 
