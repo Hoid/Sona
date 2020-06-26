@@ -121,6 +121,22 @@ class AuthorizationManager: NSObject {
         }
     }
     
+    func checkIfDeviceCanPlayback() {
+        
+        requestCloudServiceCapabilities()
+        
+        if self.cloudServiceCapabilities.contains(.addToCloudMusicLibrary) {
+            print("The user has an Apple Music subscription, can playback music AND can add to the Cloud Music Library")
+        } else if self.cloudServiceCapabilities.contains(.musicCatalogPlayback) {
+            print("The user has an Apple Music subscription and can playback music.")
+        } else if self.cloudServiceCapabilities.contains(.musicCatalogSubscriptionEligible) {
+            print("The user doesn't have an Apple Music subscription available. Now would be a good time to prompt them to buy one?")
+        } else {
+            print("Capability not recognized in AppleMusicPlayerController.checkIfDeviceCanPlayback()")
+        }
+        
+    }
+    
     // MARK: Authorization Request Methods
     
     func requestCloudServiceAuthorization() {

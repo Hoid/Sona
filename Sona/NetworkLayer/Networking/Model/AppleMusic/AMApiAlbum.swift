@@ -1,27 +1,32 @@
 //
-//  AMArtistModel.swift
+//  AMAlbumModel.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 6/24/20.
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMArtist : Decodable {
+struct AMApiAlbum : Decodable {
     
     struct Attributes : Decodable {
-        let genreNames: [String]
+        let artistName: String
+        let artwork: AMApiArtwork
+        let contentRating: String?
         let name: String
-        let url: String
+        let playParams: AMAPiPlayParams?
+        let trackCount: Int
     }
     
     struct Relationships : Decodable {
-        let albumRelationships: AlbumRelationships?
+        
+        let artistRelationships: ArtistRelationships?
         let genreRelationships: GenreRelationships?
-        let playlistRelationships: PlaylistRelationships?
+        
     }
     
     let attributes: Attributes?
     let relationships: Relationships?
     let type: String
+    
     
 }

@@ -128,7 +128,7 @@ class UserDAO : BaseDAO, DAO {
     /// - parameter firebaseUID: The user's `firebaseUID` to query for.
     /// - parameter isPublic: The user's `isPublic` value to set.
     /// - throws: A DatabaseError whenever an SQLite error occurs.
-    public static func setIsPublicFor(firebaseUID: String, isPublic: Bool) throws {
+    public static func setIsPublic(forFirebaseUID firebaseUID: String, isPublic: Bool) throws {
         let user = try getUserFor(firebaseUID: firebaseUID)
         user.isPublic = isPublic
         try dbQueue.write({ (db) in

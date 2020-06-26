@@ -6,11 +6,11 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMCurator : Decodable {
+struct AMApiCurator : Decodable {
     
     struct Attributes : Decodable {
-        let artwork: AMArtwork
-        let editorialNotes: AMEditorialNotes?
+        let artwork: AMApiArtwork
+        let editorialNotes: AMApiEditorialNotes?
         let name: String
         let url: String
     }

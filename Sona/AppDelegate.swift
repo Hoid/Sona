@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             do {
-                try UserDAO.setIsPublicFor(firebaseUID: firebaseUser.uid, isPublic: false)
+                try UserDAO.setIsPublic(forFirebaseUID: firebaseUser.uid, isPublic: false)
             } catch {
                 print(error.localizedDescription)
             }

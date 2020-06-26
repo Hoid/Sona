@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AMPlaylist : Decodable {
+struct AMApiPlaylist : Decodable {
     
     enum PlaylistType : String, Decodable {
         case userShared = "user-shared"
@@ -18,11 +18,11 @@ struct AMPlaylist : Decodable {
     }
     
     struct Attributes : Decodable {
-        let artwork: AMArtwork?
-        let description: AMEditorialNotes?
+        let artwork: AMApiArtwork?
+        let description: AMApiEditorialNotes?
         let lastModifiedDate: Date
         let name: String
-        let playParams: AMPlayParams?
+        let playParams: AMAPiPlayParams?
         let playlistType: PlaylistType
         let url: String
     }

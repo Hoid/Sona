@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-class AMLibrarySongResponse : AMResourceResponseRoot {
+class AMLibrarySongResponse : AMApiResourceResponseRoot {
     let data: [AMLibrarySong]?
     let next: String?
 //    let results: AMResults?

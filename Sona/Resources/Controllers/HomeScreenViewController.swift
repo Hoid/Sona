@@ -70,7 +70,7 @@ class HomeScreenViewController: UIViewController {
                 return
             }
             do {
-                try UserDAO.setIsPublicFor(firebaseUID: firebaseUser.uid, isPublic: userIsPublicApiResponse.isPublic)
+                try UserDAO.setIsPublic(forFirebaseUID: firebaseUser.uid, isPublic: userIsPublicApiResponse.isPublic)
             } catch {
                 print(error.localizedDescription)
             }

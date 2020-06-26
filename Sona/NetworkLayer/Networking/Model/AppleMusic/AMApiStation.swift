@@ -6,10 +6,10 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMStation : Decodable {
+struct AMApiStation : Decodable {
     
     struct Attributes : Decodable {
-        let artwork: AMArtwork
+        let artwork: AMApiArtwork
         let durationInMillis: Int64?
         let isLive: Bool
         let name: String

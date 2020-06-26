@@ -11,11 +11,11 @@ struct AMLibrarySong : Decodable {
     struct Attributes : Decodable {
         let albumName: String
         let artistName: String
-        let artwork: AMArtwork
+        let artwork: AMApiArtwork
         let contentRating: String?
         let durationInMillis: Int64
         let name: String
-        let playParams: AMPlayParams
+        let playParams: AMAPiPlayParams
         let trackNumber: Int
     }
     

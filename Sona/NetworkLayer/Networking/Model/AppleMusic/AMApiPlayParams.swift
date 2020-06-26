@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMPlayParams : Decodable {
+struct AMAPiPlayParams : Decodable {
     let id: String
     let isLibrary: Bool
     let kind: String

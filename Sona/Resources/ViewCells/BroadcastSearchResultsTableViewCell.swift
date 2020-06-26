@@ -18,8 +18,10 @@ class BroadcastSearchResultsTableViewCell : UITableViewCell {
     
     public func setup(broadcast: Broadcast) {
         
+        self.broadcast = broadcast
+        
         self.songTitleLabel.text = broadcast.song.title
-        self.artistLabel.text = broadcast.song.artist
+        self.artistLabel.text = broadcast.song.artistName
         self.usernameLabel.text = broadcast.user.username
         
     }

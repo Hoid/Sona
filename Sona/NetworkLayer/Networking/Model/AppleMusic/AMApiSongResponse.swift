@@ -8,8 +8,8 @@
 
 import Foundation
 
-class AMSongResponse : AMResourceResponseRoot {
-    let data: [AMSong]?
+class AMApiSongResponse : AMApiResourceResponseRoot {
+    let data: [AMApiSong]?
     let next: String?
 //    let results: AMResults?
 //    let errors: [AMError]?

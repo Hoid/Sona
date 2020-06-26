@@ -24,7 +24,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="HomeScreenBroadcastSearchIcon"/>
                                 <connections>
-                                    <segue destination="prR-aM-c4w" kind="presentation" identifier="BroadcastSearchViewSegue" id="anL-Gh-yFW"/>
+                                    <segue destination="LNl-wa-c58" kind="presentation" identifier="BroadcastSearchViewSegue" id="anL-Gh-yFW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -146,21 +146,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="c5o-bS-fMl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="prR-aM-c4w" id="hHd-2I-dyC"/>
                                 </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-uA-Zhp">
-                                <rect key="frame" x="50" y="64" width="314" height="32"/>
+                                <rect key="frame" x="50" y="120" width="314" height="32"/>
                                 <segments>
                                     <segment title="Everyone"/>
                                     <segment title="Friends"/>
                                 </segments>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iK-kY-mBy">
-                                <rect key="frame" x="0.0" y="103" width="414" height="739"/>
+                                <rect key="frame" x="0.0" y="159" width="414" height="683"/>
                                 <connections>
                                     <segue destination="k41-TJ-oGf" kind="embed" identifier="BroadcastSearchResultsTableViewSegue" id="FGz-J0-GPu"/>
                                 </connections>
@@ -187,21 +187,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2B-5y-YGK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Uck-Ll-mow"/>
                     <connections>
                         <outlet property="broadcastSearchBar" destination="c5o-bS-fMl" id="brR-6J-wfp"/>
                         <outlet property="broadcastSearchSegmentedControl" destination="sl1-uA-Zhp" id="4oT-nj-GWy"/>
+                        <segue destination="czS-dj-Dqb" kind="show" identifier="segueToBroadcastPlayerVC" id="OLB-hF-QiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sW-IN-sAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="815.625"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="815.625"/>
         </scene>
         <!--Broadcast Search Results Table View Controller-->
         <scene sceneID="MPv-hH-THb">
             <objects>
                 <tableViewController id="k41-TJ-oGf" customClass="BroadcastSearchResultsTableViewController" customModule="Sona" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zya-wC-T6J">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="739"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -257,10 +259,30 @@
                             <outlet property="delegate" destination="k41-TJ-oGf" id="T7i-iW-Mqe"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Mbf-ug-b7F" kind="unwind" identifier="unwindToBroadcastSearchVC" unwindAction="unwindToBroadcastSearchVC:" id="NR1-C3-err"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5w-Ke-oOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Mbf-ug-b7F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="1477.5669642857142"/>
+            <point key="canvasLocation" x="1049" y="1457"/>
+        </scene>
+        <!--Broadcast Player View Controller-->
+        <scene sceneID="Dr1-s2-DD5">
+            <objects>
+                <viewController id="czS-dj-Dqb" customClass="BroadcastPlayerViewController" customModule="Sona" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTO-mU-zDd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="sNG-Hc-N1P"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ewe-nR-V1U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tgC-ml-jMR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941" y="816"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hpy-cj-Wey">
@@ -408,6 +430,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzr-GD-5B0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-764" y="76"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pD5-gy-Yh2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LNl-wa-c58" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LU9-fH-MA0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="prR-aM-c4w" kind="relationship" relationship="rootViewController" id="Kgn-Up-4bz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHc-0S-vch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="815.625"/>
         </scene>
     </scenes>
     <resources>

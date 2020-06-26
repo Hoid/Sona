@@ -7,13 +7,6 @@
 //
 
 struct Broadcast {
-    
     var song: Song
     var user: User
-    
-    init(song: Song, user: User) {
-        self.song = song
-        self.user = user
-    }
-    
 }

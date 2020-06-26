@@ -6,18 +6,18 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-class AMSong : Decodable {
- 
+class AMApiSong : Decodable {
+    
     struct Attributes : Decodable {
         let albumName: String
         let artistName: String
-        let artwork: AMArtwork
+        let artwork: AMApiArtwork
         let composerName: String?
         let contentRating: String?
         let durationInMillis: Int64
         let genreNames: [String]
         let name: String
-        let playParams: AMPlayParams
+        let playParams: AMAPiPlayParams
         let trackNumber: Int
         let url: String
     }
@@ -32,6 +32,7 @@ class AMSong : Decodable {
     let id: String
     let attributes: Attributes?
     let relationships: Relationships?
+    let href: String?
     let type: String
     
 }

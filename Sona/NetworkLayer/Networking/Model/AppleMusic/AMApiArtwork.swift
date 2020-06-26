@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMArtwork : Decodable {
+struct AMApiArtwork : Artwork, Decodable {
     let height: Int
     let width: Int
     let url: String

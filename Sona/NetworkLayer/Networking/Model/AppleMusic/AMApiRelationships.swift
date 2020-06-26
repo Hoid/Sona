@@ -7,27 +7,27 @@
 //
 
 struct AlbumRelationships : Decodable {
-    let data: [AMAlbum]
+    let data: [AMApiAlbum]
 }
 
 struct ArtistRelationships : Decodable {
-    let data: [AMArtist]
+    let data: [AMApiArtist]
 }
 
 struct GenreRelationships : Decodable {
-    let data: [AMGenre]
+    let data: [AMApiGenre]
 }
 
 struct PlaylistRelationships : Decodable {
-    let data: [AMPlaylist]
+    let data: [AMApiPlaylist]
 }
 
 struct CuratorRelationships : Decodable {
-    let data: [AMCurator]
+    let data: [AMApiCurator]
 }
 
 struct StationRelationship : Decodable {
-    let data: AMStation
+    let data: AMApiStation
 }
 
 // TODO: Implement this

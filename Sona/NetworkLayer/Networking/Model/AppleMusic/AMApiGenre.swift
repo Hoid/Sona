@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct AMGenre : Decodable {
+struct AMApiGenre : Decodable {
     
     struct Attributes : Decodable {
         let name: String
