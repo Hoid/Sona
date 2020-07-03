@@ -108,6 +108,7 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
+  - Starscream (4.0.3)
   - SwiftJWT (3.5.3):
     - BlueCryptor (~> 1.0)
     - BlueECC (~> 1.1)
@@ -120,6 +121,7 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - FirebaseUI/OAuth
   - GRDB.swift
+  - Starscream (~> 4.0.0)
   - SwiftJWT (= 3.5.3)
 
 SPEC REPOS:
@@ -148,6 +150,7 @@ SPEC REPOS:
     - Logging
     - nanopb
     - PromisesObjC
+    - Starscream
     - SwiftJWT
 
 SPEC CHECKSUMS:
@@ -175,8 +178,9 @@ SPEC CHECKSUMS:
   Logging: 7838d379d234d7e5ae1265fa02804a9084caf04c
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
   SwiftJWT: 9a47a71090cae25767078756b5810e3b630aa9a7
 
-PODFILE CHECKSUM: 327a5cbf164a3387914f135c289ffab6a05c60e8
+PODFILE CHECKSUM: 73a40097fe75411979817b33eaa959e61bb23cf6
 
 COCOAPODS: 1.9.3

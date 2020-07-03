@@ -11,5 +11,6 @@ ${BUILT_PRODUCTS_DIR}/KituraContracts/KituraContracts.framework
 ${BUILT_PRODUCTS_DIR}/LoggerAPI/LoggerAPI.framework
 ${BUILT_PRODUCTS_DIR}/Logging/Logging.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
+${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
 ${BUILT_PRODUCTS_DIR}/SwiftJWT/SwiftJWT.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

@@ -32,6 +32,7 @@ class ChooseUsernameViewController : UIViewController {
             let firebaseUID = loggedInUser.uid
             do {
                 let user = try UserDAO.getUserFor(firebaseUID: firebaseUID)
+                appDelegate.authorizationManager.signedInUser = user
                 if user.username != nil {
                     // if logged in user has a username already, go to home page
                     print("User with FirebaseUID \(firebaseUID) is currently signed in. Attempting to present home page.")
@@ -94,6 +95,8 @@ class ChooseUsernameViewController : UIViewController {
             // user exists in local database for given firebaseUID
             // now ensure a profile exists for this user
             createLocalProfileIfNotExistsFor(user: user)
+            
+            self.appDelegate.authorizationManager.signedInUser = user
         } catch UserError.notFound {
             // if a user isn't present in the database for the given firebaseUID yet, that's fine, just create it and its corresponding profile
             // if however we can't unwrap the firebaseUser data we need, crash to signify an unrecoverable error
@@ -119,9 +122,11 @@ class ChooseUsernameViewController : UIViewController {
                 let newUser = User(fromUserApiResponse: userApiResponse)
                 self.createLocalUser(newUser)
                 self.createLocalProfileIfNotExistsFor(user: newUser)
+                
+                self.appDelegate.authorizationManager.signedInUser = newUser
+                
                 self.removeSpinner()
             }
-            
         } catch {
             // DatabaseError; quit the application to signify unrecoverable error
             fatalError("Could not get user for firebaseUID \(firebaseUser.uid). Error: \(error)")

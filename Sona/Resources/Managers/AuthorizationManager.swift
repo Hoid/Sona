@@ -38,6 +38,9 @@ class AuthorizationManager: NSObject {
     /// The current set of two letter country code associated with the currently authenticated iTunes Store account.
     var cloudServiceStorefrontCountryCode = ""
     
+    /// The currently signed in user. Will be assigned on app startup.
+    var signedInUser: User?
+    
     /// The authorization header to be used in API requests to the Apple Music API.
     var authHeader: HTTPHeaders?
     

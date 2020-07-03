@@ -10,6 +10,7 @@ target 'Sona' do
   pod 'Firebase/Analytics'
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/OAuth'
-  pod 'SwiftJWT', '3.5.3' 
+  pod 'SwiftJWT', '3.5.3'
+  pod 'Starscream', '~> 4.0.0'
 
 end

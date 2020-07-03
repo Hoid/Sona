@@ -11,6 +11,7 @@
 		1918A7FE2485C503004DE142 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FD2485C503004DE142 /* User.swift */; };
 		1918A8002485E5FA004DE142 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A7FF2485E5FA004DE142 /* ProfileViewController.swift */; };
 		1918A8022485E7C7004DE142 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1918A8012485E7C7004DE142 /* Profile.swift */; };
+		193A1A2824A7A5DE00A332FE /* StreamsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193A1A2724A7A5DE00A332FE /* StreamsManager.swift */; };
 		1946021324847C4900D8FDCF /* BroadcastSearchFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */; };
 		19522C3C2487ABCB0032B0C0 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19522C3B2487ABCB0032B0C0 /* SignInController.swift */; };
 		19522C46248843E00032B0C0 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19522C45248843E00032B0C0 /* PopAnimator.swift */; };
@@ -112,6 +113,7 @@
 		1918A7FD2485C503004DE142 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1918A7FF2485E5FA004DE142 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1918A8012485E7C7004DE142 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		193A1A2724A7A5DE00A332FE /* StreamsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsManager.swift; sourceTree = "<group>"; };
 		1946021224847C4900D8FDCF /* BroadcastSearchFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchFilterHelper.swift; sourceTree = "<group>"; };
 		19522C3A24873C710032B0C0 /* Sona.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sona.entitlements; sourceTree = "<group>"; };
 		19522C3B2487ABCB0032B0C0 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				19FEC42F2494306D00234FE9 /* NetworkManager.swift */,
 				19FEC42D2494304B00234FE9 /* UsersNetworkManager.swift */,
 				19FFE109249F94BD007C1DB6 /* AppleMusicNetworkManager.swift */,
+				193A1A2724A7A5DE00A332FE /* StreamsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				19FEC3F724908BE600234FE9 /* ProfileDAO.swift in Sources */,
 				19FFE14A24A59908007C1DB6 /* Artwork.swift in Sources */,
 				19FFE13F24A4661B007C1DB6 /* AMApiSong.swift in Sources */,
+				193A1A2824A7A5DE00A332FE /* StreamsManager.swift in Sources */,
 				19FEC41F249142F000234FE9 /* EndPointType.swift in Sources */,
 				19FFE12F24A45572007C1DB6 /* AMApiArtist.swift in Sources */,
 				19522C46248843E00032B0C0 /* PopAnimator.swift in Sources */,

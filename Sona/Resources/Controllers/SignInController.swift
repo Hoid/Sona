@@ -66,6 +66,8 @@ class SignInController : NSObject, FUIAuthDelegate {
                     fatalError("Could not create user in the local database. Error: \(error)")
                 }
             }
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.authorizationManager.signedInUser = newUser
         } catch {
             // DatabaseError.
             fatalError("Could not get user from local database. Error: \(error)")
