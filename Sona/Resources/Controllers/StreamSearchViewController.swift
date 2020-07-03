@@ -1,5 +1,5 @@
 //
-//  BroadcastSearchViewController.swift
+//  StreamSearchViewController.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 5/28/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BroadcastSearchViewController : UIViewController, UISearchBarDelegate {
+class StreamSearchViewController : UIViewController, UISearchBarDelegate {
     
     var broadcastSearchResultsTableVC: BroadcastSearchResultsTableViewController?
     var selectedCell: BroadcastSearchResultsTableViewCell?

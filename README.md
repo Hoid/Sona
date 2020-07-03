@@ -6,10 +6,10 @@ Welcome to the documentation for Sona! This documentation will show you how to s
 
 1. First, clone the repo using `git clone https://github.com/Hoid/Sona.git`
 2. Open the workspace (`.xcworkspace` file) in XCode, *not* the project file (`.xcodeproj`). This is because CocoaPods doesn't work when you just open the project file.
-3. Navigate to the root Sona directory for the repo, ensure you have CocoaPods installed, and run `pod install`
+3. Navigate to the root Sona directory for the repo in terminal, ensure you have CocoaPods installed, and run `pod install`
 4. Assuming all goes well, you should be able to build the project in XCode now. If you have problems building, you can open up an issue ticket on Github and I'll look into helping you get set up.
 5. Message me directly for the AppleMusicAuthKey.p8 file :)
-6. You can run the project in the simulator, but you'll get errors when doing certain things because you can't make calls to the device's Apple Music Library from the simulator (there's no library to query from). As a result you have to run Sona on a physical device to test all of the features. 
+6. You can run the project in the simulator, but you'll get errors when doing certain things because you can't make calls to the device's Apple Music Library from the simulator (there's no library to query from). As a result you have to run Sona on a physical device to test all of the features. To register your physical device you'll have to contact me directly with its UDID so I can add it.
 
 ## Methodology
 
@@ -21,6 +21,8 @@ Once the user is authenticated, if they are new, we show them a Choose Username 
 
 Once the `User` and `Profile` have been created, the user is taken to the Home Screen. From there the user can go public or go private using the Public switch at the top, go to their Profile at the top left, or can search for streams to join. 
 
+When the user clicks on the search button to search public streams, currently there is a hardcoded list of streams in the list. Eventually this will be replaced by a list of public users. When the user clicks on a stream, a new screen gets opened which opens a new websocket connection with the `sona-streaming` websocket API. This API will handle all of the actions of syncing the user's active music playback to the streamer's active music playback. Currently there is no functionality here other than opening the websocket. 
+
 ### Local Database
 
 Sona uses [GRDB](https://github.com/groue/GRDB.swift/blob/master/README.md) as its local database framework. GRDB is a wrapper for SQLite, works really well with multithreaded applications, and is easy to understand. It's documentation is also fairly good.
@@ -30,6 +32,10 @@ Currently, the structure of database access is a `DAO` protocol, which only forc
 The only methods in individual DAOs that do not throw Errors are the `create*Table()` method and the `exists()` method in each DAO, because if the database table creation fails we always want to immediately quit the app, and the `exists()` method doesn't require throwing. All other methods will throw errors back to the caller so that they can be dealt with appropriately at that level. Sometimes we catch errors inside the DAO methods and then throw a more useful Error, such as `UserError.cannotFetch` instead of just a `DatabaseError`.
 
 Individual DTOs that define what the database object looks like are subclasses of the GRDB `Record` class. For example, `User` defines all of the necessary methods for database access and insertion to work. See the GRDB documentation at the link above for more information.
+
+### Websocket Activity
+
+When the user is listening to someone's stream
 
 ## The Future of Sona
 

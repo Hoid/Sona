@@ -1,5 +1,5 @@
 //
-//  BroadcastSearchResultTableViewController.swift
+//  StreamSearchResultTableViewController.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 5/28/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BroadcastSearchResultsTableViewController : UITableViewController {
+class StreamSearchResultsTableViewController : UITableViewController {
         
     var broadcasts = [Broadcast]()
     var filteredBroadcasts = [Broadcast]()

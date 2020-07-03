@@ -35,9 +35,9 @@
 		19C46B1E24806428002537D5 /* BroadcastSearchFilterHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B1D24806428002537D5 /* BroadcastSearchFilterHelperTests.swift */; };
 		19C46B2924806428002537D5 /* SonaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B2824806428002537D5 /* SonaUITests.swift */; };
 		19C46B3A24806606002537D5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B3924806606002537D5 /* Spinner.swift */; };
-		19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */; };
+		19C46B43248095CB002537D5 /* StreamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B42248095CB002537D5 /* StreamSearchViewController.swift */; };
 		19C46B492480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */; };
-		19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */; };
+		19C46B4B2480AFB7002537D5 /* StreamSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4A2480AFB7002537D5 /* StreamSearchResultsTableViewController.swift */; };
 		19C46B4F248169C8002537D5 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B4E248169C8002537D5 /* Broadcast.swift */; };
 		19C46B5124816A0A002537D5 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C46B5024816A0A002537D5 /* Song.swift */; };
 		19FEC3F2248DE90200234FE9 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FEC3F1248DE90200234FE9 /* UserError.swift */; };
@@ -84,7 +84,7 @@
 		19FFE14124A4663B007C1DB6 /* AMApiLibrarySongResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14024A4663B007C1DB6 /* AMApiLibrarySongResponse.swift */; };
 		19FFE14324A46647007C1DB6 /* AMApiLibrarySong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14224A46647007C1DB6 /* AMApiLibrarySong.swift */; };
 		19FFE14624A51D33007C1DB6 /* AMResourceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14524A51D32007C1DB6 /* AMResourceResponse.swift */; };
-		19FFE14824A53A13007C1DB6 /* BroadcastPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14724A53A13007C1DB6 /* BroadcastPlayerViewController.swift */; };
+		19FFE14824A53A13007C1DB6 /* StreamPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14724A53A13007C1DB6 /* StreamPlayerViewController.swift */; };
 		19FFE14A24A59908007C1DB6 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14924A59908007C1DB6 /* Artwork.swift */; };
 		19FFE14C24A59A52007C1DB6 /* AMSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFE14B24A59A52007C1DB6 /* AMSong.swift */; };
 		86519F5AF6E50AD000ADBBA5 /* Pods_Sona.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */; };
@@ -138,9 +138,9 @@
 		19C46B2824806428002537D5 /* SonaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonaUITests.swift; sourceTree = "<group>"; };
 		19C46B2A24806428002537D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C46B3924806606002537D5 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Spinner.swift; path = "../../../FCS_Mock_Season_Creator/FCS Mock Season Creator/Resources/Spinner.swift"; sourceTree = "<group>"; };
-		19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchViewController.swift; sourceTree = "<group>"; };
+		19C46B42248095CB002537D5 /* StreamSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSearchViewController.swift; sourceTree = "<group>"; };
 		19C46B482480A82B002537D5 /* BroadcastSearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewCell.swift; sourceTree = "<group>"; };
-		19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		19C46B4A2480AFB7002537D5 /* StreamSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		19C46B4E248169C8002537D5 /* Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		19C46B5024816A0A002537D5 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		19FEC3F1248DE90200234FE9 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 		19FFE14224A46647007C1DB6 /* AMApiLibrarySong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMApiLibrarySong.swift; sourceTree = "<group>"; };
 		19FFE14424A50499007C1DB6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		19FFE14524A51D32007C1DB6 /* AMResourceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMResourceResponse.swift; sourceTree = "<group>"; };
-		19FFE14724A53A13007C1DB6 /* BroadcastPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastPlayerViewController.swift; sourceTree = "<group>"; };
+		19FFE14724A53A13007C1DB6 /* StreamPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamPlayerViewController.swift; sourceTree = "<group>"; };
 		19FFE14924A59908007C1DB6 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		19FFE14B24A59A52007C1DB6 /* AMSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMSong.swift; sourceTree = "<group>"; };
 		63A95FFAF36344DA5B5D7C1A /* Pods_Sona.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sona.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,10 +277,10 @@
 				19522C3B2487ABCB0032B0C0 /* SignInController.swift */,
 				19522C4C2489545A0032B0C0 /* ChooseUsernameViewController.swift */,
 				19C46B0724806427002537D5 /* HomeScreenViewController.swift */,
-				19C46B42248095CB002537D5 /* BroadcastSearchViewController.swift */,
-				19C46B4A2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift */,
+				19C46B42248095CB002537D5 /* StreamSearchViewController.swift */,
+				19C46B4A2480AFB7002537D5 /* StreamSearchResultsTableViewController.swift */,
 				1918A7FF2485E5FA004DE142 /* ProfileViewController.swift */,
-				19FFE14724A53A13007C1DB6 /* BroadcastPlayerViewController.swift */,
+				19FFE14724A53A13007C1DB6 /* StreamPlayerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -742,9 +742,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19FEC4302494306D00234FE9 /* NetworkManager.swift in Sources */,
-				19C46B4B2480AFB7002537D5 /* BroadcastSearchResultsTableViewController.swift in Sources */,
+				19C46B4B2480AFB7002537D5 /* StreamSearchResultsTableViewController.swift in Sources */,
 				19FFE10E249F9794007C1DB6 /* AMApiSongResponse.swift in Sources */,
-				19C46B43248095CB002537D5 /* BroadcastSearchViewController.swift in Sources */,
+				19C46B43248095CB002537D5 /* StreamSearchViewController.swift in Sources */,
 				19FFE13124A456EA007C1DB6 /* AMApiGenre.swift in Sources */,
 				19FFE14324A46647007C1DB6 /* AMApiLibrarySong.swift in Sources */,
 				1918A7FC2485C27F004DE142 /* DAO.swift in Sources */,
@@ -797,7 +797,7 @@
 				19FEC427249142F700234FE9 /* ParameterEncoding.swift in Sources */,
 				19FEC3F524908B4600234FE9 /* UserDAO.swift in Sources */,
 				19FFE10C249F9526007C1DB6 /* AppleMusicKitApi.swift in Sources */,
-				19FFE14824A53A13007C1DB6 /* BroadcastPlayerViewController.swift in Sources */,
+				19FFE14824A53A13007C1DB6 /* StreamPlayerViewController.swift in Sources */,
 				19FFE113249F9869007C1DB6 /* SpotifySong.swift in Sources */,
 				19C46B3A24806606002537D5 /* Spinner.swift in Sources */,
 				19FEC42E2494304B00234FE9 /* UsersNetworkManager.swift in Sources */,
