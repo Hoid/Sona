@@ -21,7 +21,7 @@ Once the user is authenticated, if they are new, we show them a Choose Username 
 
 Once the `User` and `Profile` have been created, the user is taken to the Home Screen. From there the user can go public or go private using the Public switch at the top, go to their Profile at the top left, or can search for streams to join. 
 
-When the user clicks on the search button to search public streams, currently there is a hardcoded list of streams in the list. Eventually this will be replaced by a list of public users. When the user clicks on a stream, a new screen gets opened which opens a new websocket connection with the `sona-streaming` websocket API. This API will handle all of the actions of syncing the user's active music playback to the streamer's active music playback. Currently there is no functionality here other than opening the websocket. 
+When the user clicks on the search button to search public streams, currently there is a hardcoded list of streams in the list. Eventually this will be replaced by a list of public users. When the user clicks on a stream, the stream opens in a new screen that allows listeners to pause playback, refresh the connection to the host (at most once every 5 seconds), change the volume, and see a list of songs played and queued.
 
 ### Local Database
 
@@ -33,18 +33,22 @@ The only methods in individual DAOs that do not throw Errors are the `create*Tab
 
 Individual DTOs that define what the database object looks like are subclasses of the GRDB `Record` class. For example, `User` defines all of the necessary methods for database access and insertion to work. See the GRDB documentation at the link above for more information.
 
-### Websocket Activity
+### Websocket Usage
 
-When the user is listening to someone's stream
+In the future, we will use websockets to make the listeners' AMP be updated nearly instantly when the host's AMP changes. This will only be possible while the app is in the foreground, due to limitations of the iOS system. Currently we only push updates to the listeners' AMPs when we expect a change to have been made (such as when the currently playing song would have ended), if there has been a change since last polled (currently 20 seconds), or if the user manually clicks the refresh button on the stream. 
 
 ## The Future of Sona
 
 ### Features
 
 - Allow users to join someone's "stream" at any time they are public and listen to whatever music they are listening to and leave at any time. 
-    - When someone joins a stream, they join the person listening to a song right where they are in the song. Then, once the song ends, the user automatically follows the streamer's song choices and listens along with them.
+    - When someone joins a stream, they join the person listening to a song right where they are in the song. Then, once the song ends, the user automatically follows the host's song choices and listens along with them.
     - If the user listening to the stream decides they don't like the song that's currently playing, they can choose to play a different song in their streaming service and the app will let them play it with no issues. Any time the user takes action on their streaming service that modifies the currently playing song, like playing a new song or pausing the music through the streaming service's app instead of Sona,  Sona will realize they are no longer listening to the stream and will disconnect them from the stream. The user will have to rejoin the stream if they want to follow along again.
     - Users who are streaming can see who is listening to their stream
+    - Uses:
+        - Finding new music through your friends by listening to what they are listening to
+        - Listening to the same music on a date and talking about it 
+        - Dance teams could synchronize their music playback so that they can run a choreography together
 - Allow users to connect their Spotify and Apple Music platforms to their account, including having an "active streaming service" that they use to make changes to their libraries.
 - Allow users to also connect other forms of social media to their account, like their Twitter and Reddit accounts, so that people can follow them there or contact them through some other means if they like their music tastes and want to get to know them. Eventually, maybe add a messaging platform to Sona, but that's far down the road if we even do it. 
 - Allow users to browse streams that are public and find friends' streams easily. Friends have to simply enter the app and start "streaming" and at least have the app in the background before someone can listen to what they are listening to.
@@ -53,4 +57,5 @@ When the user is listening to someone's stream
 - Allow users to join a "party", which is a stream where the music played is suggested by the listeners. Listeners are able to vote on which song to play next by upvoting a song rec. Note: Parties will need to be carefully created when you expect more than just good actors. There needs to be the ability to kick people (as a moderator) and the ability to prevent brigading somehow, like preventing people from coming into a party too fast and setting a timer for users before they can contribute or vote.
 - Allow users to share songs with friends. Friends get a notification and can see the song or playlist by clicking on the notification. You are able to directly add a song or playlist to your library if you like it.
 - Allow users to "publicize" what songs you listen to. If you are in "public" mode, whatever songs you listen to by default go on your feed and people can easily listen to a playlist of your recently listened to songs.
+- Allow users to see a playlist of what was played during a party
 - Thinking of more features all the time!
