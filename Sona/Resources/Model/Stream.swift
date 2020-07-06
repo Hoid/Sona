@@ -1,12 +1,12 @@
 //
-//  Broadcast.swift
+//  Stream.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 5/29/20.
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
-struct Broadcast {
+struct Stream {
     var song: Song
-    var user: User
+    var host: User
 }

@@ -1,5 +1,5 @@
 //
-//  BroadcastSearchResultsTableViewCell.swift
+//  StreamSearchResultsTableViewCell.swift
 //  Sona
 //
 //  Created by Tyler Cheek on 5/28/20.

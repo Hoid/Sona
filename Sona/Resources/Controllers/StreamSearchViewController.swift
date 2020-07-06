@@ -10,15 +10,15 @@ import UIKit
 
 class StreamSearchViewController : UIViewController, UISearchBarDelegate {
     
-    var broadcastSearchResultsTableVC: BroadcastSearchResultsTableViewController?
-    var selectedCell: BroadcastSearchResultsTableViewCell?
+    var streamSearchResultsTableVC: StreamSearchResultsTableViewController?
+    var selectedCell: StreamSearchResultsTableViewCell?
     
-    @IBOutlet weak var broadcastSearchBar: UISearchBar!
-    @IBOutlet weak var broadcastSearchSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var streamsSearchBar: UISearchBar!
+    @IBOutlet weak var streamSearchSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.broadcastSearchBar.delegate = self
+        self.streamsSearchBar.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,21 +32,21 @@ class StreamSearchViewController : UIViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BroadcastSearchResultsTableViewSegue" {
-            if let viewController = segue.destination as? BroadcastSearchResultsTableViewController {
-                self.broadcastSearchResultsTableVC = viewController
+        if segue.identifier == "StreamSearchResultsTableViewSegue" {
+            if let viewController = segue.destination as? StreamSearchResultsTableViewController {
+                self.streamSearchResultsTableVC = viewController
             }
-        } else if segue.identifier == "segueToBroadcastPlayerVC" {
-            if let viewController = segue.destination as? BroadcastPlayerViewController {
-                viewController.selectedBroadcast = self.selectedCell?.broadcast
+        } else if segue.identifier == "segueToStreamPlayerVC" {
+            if let viewController = segue.destination as? StreamPlayerViewController {
+                viewController.selectedStream = self.selectedCell?.stream
             }
         }
     }
     
-    @IBAction func unwindToBroadcastSearchVC(_ unwindSegue: UIStoryboardSegue){
-        if let sourceVC = unwindSegue.source as? BroadcastSearchResultsTableViewController {
+    @IBAction func unwindToStreamSearchVC(_ unwindSegue: UIStoryboardSegue){
+        if let sourceVC = unwindSegue.source as? StreamSearchResultsTableViewController {
             self.selectedCell = sourceVC.selectedCell
-            performSegue(withIdentifier: "segueToBroadcastPlayerVC", sender: self)
+            performSegue(withIdentifier: "segueToStreamPlayerVC", sender: self)
         }
     }
         
@@ -68,12 +68,11 @@ class StreamSearchViewController : UIViewController, UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let broadcasts = self.broadcastSearchResultsTableVC?.broadcasts
-        let broadcastSearchFilterHelper = BroadcastSearchFilterHelper(broadcasts: broadcasts)
+        let streams = self.streamSearchResultsTableVC?.streams
         
-        self.broadcastSearchResultsTableVC?.filteredBroadcasts = broadcastSearchFilterHelper.filter(searchText: searchText)
+        self.streamSearchResultsTableVC?.filteredStreams = streams?.filter(byText: searchText) ?? [Stream]()
         
-        self.broadcastSearchResultsTableVC?.tableView.reloadData()
+        self.streamSearchResultsTableVC?.tableView.reloadData()
         
     }
     
