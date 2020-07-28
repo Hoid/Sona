@@ -110,22 +110,24 @@ class ChooseUsernameViewController : UIViewController {
             
             self.showSpinner(onView: self.view)
             // TODO: Move the check for if a user exists into the checkUsernameUniquenessButtonPressed(_:) method
-            usersNetworkManager.createUser(user: user) { (userApiResponse, error) in
-                if error != nil {
+            DispatchQueue.main.async {
+                self.usersNetworkManager.createUser(user: user) { (userApiResponse, error) in
+                    if error != nil {
+                        self.removeSpinner()
+                        fatalError("Could not create user on the server. Error: \(String(describing: error.debugDescription))")
+                    }
+                    guard let userApiResponse = userApiResponse else {
+                        self.removeSpinner()
+                        fatalError("Could not unwrap userApiResponse in ChooseUsernameViewController.submitButtonPressed(_:)")
+                    }
+                    let newUser = User(fromUserApiResponse: userApiResponse)
+                    self.createLocalUser(newUser)
+                    self.createLocalProfileIfNotExistsFor(user: newUser)
+                    
+                    self.appDelegate.authorizationManager.signedInUser = newUser
+                    
                     self.removeSpinner()
-                    fatalError("Could not create user on the server. Error: \(String(describing: error.debugDescription))")
                 }
-                guard let userApiResponse = userApiResponse else {
-                    self.removeSpinner()
-                    fatalError("Could not unwrap userApiResponse in ChooseUsernameViewController.submitButtonPressed(_:)")
-                }
-                let newUser = User(fromUserApiResponse: userApiResponse)
-                self.createLocalUser(newUser)
-                self.createLocalProfileIfNotExistsFor(user: newUser)
-                
-                self.appDelegate.authorizationManager.signedInUser = newUser
-                
-                self.removeSpinner()
             }
         } catch {
             // DatabaseError; quit the application to signify unrecoverable error

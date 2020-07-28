@@ -7,32 +7,57 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class StreamSearchResultsTableViewController : UITableViewController {
         
-    var streams = [Stream]()
+    var allStreams = [Stream]()
+    var friendsStreams = [Stream]()
     var filteredStreams = [Stream]()
     var selectedCell: StreamSearchResultsTableViewCell?
     
     override func viewDidLoad() {
-        let streams = [
-            Stream(
-                song: AMSong(id: "1", title: "November Rain", artistName: "Guns N' Roses", durationInMillis: 10000, albumName: "Idk", artwork: AMApiArtwork(height: 400, width: 400, url: "")),
-                host: User(firebaseUID: "1234", email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek", isPublic: true)
-            ),
-            Stream(
-                song: AMSong(id: "2", title: "How To Disappear Completely", artistName: "Radiohead", durationInMillis: 10000, albumName: "Idk", artwork: AMApiArtwork(height: 400, width: 400, url: "")),
-                host: User(firebaseUID: "1234", email: "my@email.com", username: "sylphrenetic", name: "Tyler Cheek", isPublic: true)
-            ),
-            Stream(
-                song: AMSong(id: "3", title: "Kids", artistName: "MGMT", durationInMillis: 10000, albumName: "Idk", artwork: AMApiArtwork(height: 400, width: 400, url: "")),
-                host: User(firebaseUID: User.DEFAULT_FIREBASE_ID, email: User.DEFAULT_EMAIL, username: User.DEFAULT_USERNAME, name: User.DEFAULT_NAME, isPublic: true)
-            )
-        ]
-        self.streams = streams
-        self.filteredStreams = streams
+        
         self.tableView.dataSource = self
-        self.tableView.reloadData()
+        self.showSpinner(onView: self.view)
+        appDelegate.streamsNetworkManager.getAllStreams { (streamsApiResponse, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let streamsApiResponse = streamsApiResponse else {
+                print("Could not unwrap streamsApiResponse in StreamSearchResultsTableViewController.viewDidLoad()")
+                return
+            }
+            self.allStreams = streamsApiResponse.streams.map({ (streamApiResponse) -> Stream in
+                return Stream(fromStreamApiResponse: streamApiResponse)
+            })
+            self.removeSpinner()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        guard let signedInUser = appDelegate.authorizationManager.signedInUser else {
+            print("Could not get signed in user in StreamSearchResultsTableViewController.viewDidLoad()")
+            return
+        }
+        appDelegate.streamsNetworkManager.getStreamsForFriends(ofUserWithFirebaseUID: signedInUser.firebaseUID) { (streamsApiResponse, error) in
+            if error != nil {
+                return
+            }
+            guard let streamsApiResponse = streamsApiResponse else {
+                print("Could not unwrap streamsApiResponse in StreamSearchResultsTableViewController.viewDidLoad()")
+                return
+            }
+            self.friendsStreams = streamsApiResponse.streams.map({ (streamApiResponse) -> Stream in
+                return Stream(fromStreamApiResponse: streamApiResponse)
+            })
+            self.removeSpinner()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

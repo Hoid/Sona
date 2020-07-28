@@ -17,20 +17,36 @@ class UsersNetworkManager : NetworkManager {
         return environment
     }
     
-    func getAllUsers(completion: @escaping (_ userApiResponses: [UserApiResponse]?, _ error: String?) -> ()) {
+    func getUser(firebaseUID: String, completion: @escaping (_ userApiResponse: UserApiResponse?, _ error: String?) -> ()) {
+        
+        router.request(.getUser(firebaseUID: firebaseUID)) { data, response, error in
+            self.handleResponse(data: data, dataType: UserApiResponse.self, response: response, error: error, completion: completion)
+        }
+        
+    }
+    
+    func getAllUsers(completion: @escaping (_ usersApiResponses: UsersApiResponse?, _ error: String?) -> ()) {
         
         router.request(.getUsers) { data, response, error in
-            self.handleResponse(data: data, dataType: [UserApiResponse].self, response: response, error: error, completion: completion)
+            self.handleResponse(data: data, dataType: UsersApiResponse.self, response: response, error: error, completion: completion)
         }
         
     }
         
-    func getPublicUsers(completion: @escaping (_ userApiResponses: [UserApiResponse]?, _ error: String?) -> ()) {
+    func getPublicUsers(completion: @escaping (_ usersApiResponses: UsersApiResponse?, _ error: String?) -> ()) {
     
         router.request(.getPublicUsers) { data, response, error in
-            self.handleResponse(data: data, dataType: [UserApiResponse].self, response: response, error: error, completion: completion)
+            self.handleResponse(data: data, dataType: UsersApiResponse.self, response: response, error: error, completion: completion)
         }
     
+    }
+    
+    func getHosts(completion: @escaping (_ usersApiResponse: UsersApiResponse?, _ error: String?) -> ()) {
+        
+        router.request(.getPublicUsers) { data, response, error in
+            self.handleResponse(data: data, dataType: UsersApiResponse.self, response: response, error: error, completion: completion)
+        }
+        
     }
     
     func createUser(user: User, completion: @escaping (_ userApiResponse: UserApiResponse?, _ error: String?) -> ()) {

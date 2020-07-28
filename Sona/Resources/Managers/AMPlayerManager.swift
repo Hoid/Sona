@@ -9,7 +9,7 @@ import UIKit
 import MediaPlayer
 
 @objcMembers
-class MusicPlayerManager: NSObject {
+class AMPlayerManager: NSObject {
     
     // MARK: Types
     
@@ -105,10 +105,10 @@ class MusicPlayerManager: NSObject {
     // MARK: Notification Observing Methods
     
     func handleMusicPlayerControllerNowPlayingItemDidChange() {
-        NotificationCenter.default.post(name: MusicPlayerManager.didUpdateState, object: nil)
+        NotificationCenter.default.post(name: AMPlayerManager.didUpdateState, object: nil)
     }
     
     func handleMusicPlayerControllerPlaybackStateDidChange() {
-        NotificationCenter.default.post(name: MusicPlayerManager.didUpdateState, object: nil)
+        NotificationCenter.default.post(name: AMPlayerManager.didUpdateState, object: nil)
     }
 }

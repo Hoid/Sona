@@ -11,6 +11,7 @@ import Foundation
 public enum UsersApi {
     case getUsers
     case getPublicUsers
+    case getHosts
     case getUser(firebaseUID: String)
     case setIsPublic(isPublic: Bool, userFirebaseUID: String)
     case putUser(user: User)
@@ -29,7 +30,7 @@ extension UsersApi : EndPointType {
     }
     
     var baseURL: URL {
-        guard let url = URL(string: environmentBaseURL) else { fatalError("baseURL could not be configured.")}
+        guard let url = URL(string: environmentBaseURL) else { fatalError("baseURL could not be configured.") }
         return url
     }
 
@@ -39,8 +40,10 @@ extension UsersApi : EndPointType {
             return "users"
         case .getPublicUsers:
             return "users/public"
-        case .getUser(let id):
-            return "users/\(id)"
+        case .getHosts:
+            return "users/hosts"
+        case .getUser(let firebaseUID):
+            return "users/\(firebaseUID)"
         case .setIsPublic(_, let userFirebaseUID):
             return "users/\(userFirebaseUID)/public"
         case .putUser(let user):
@@ -56,6 +59,8 @@ extension UsersApi : EndPointType {
             return .get
         case .getPublicUsers:
             return .get
+        case .getHosts:
+            return .get
         case .getUser:
             return .get
         case .setIsPublic:
@@ -69,7 +74,7 @@ extension UsersApi : EndPointType {
 
     var task: HTTPTask {
         switch self {
-        case .getUsers, .getPublicUsers, .getUser:
+        case .getUsers, .getPublicUsers, .getUser, .getHosts:
             return .requestWithParametersAndHeaders(bodyParameters: nil, urlParameters: nil, headers: headers)
         case .setIsPublic(let isPublic, _):
             return .requestWithParametersAndHeaders(bodyParameters: ["isPublic" : isPublic], urlParameters: nil, headers: headers)

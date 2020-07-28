@@ -14,6 +14,15 @@ struct AMSong : Song {
     let albumName: String?
     let artwork: Artwork?
     
+    init() {
+        self.id = "1"
+        self.title = nil
+        self.artistName = nil
+        self.durationInMillis = nil
+        self.albumName = nil
+        self.artwork = nil
+    }
+    
     init(id: String, title: String? = nil, artistName: String? = nil, durationInMillis: Int64? = nil, albumName: String? = nil, artwork: Artwork? = nil) {
         self.id = id
         self.title = title

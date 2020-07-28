@@ -24,12 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     /// The instance of `AppleMusicNetworkManager` which handles making web service calls to Apple Music Web Services.
-    var appleMusicNetworkManager = AppleMusicNetworkManager()
+    let appleMusicNetworkManager = AppleMusicNetworkManager()
     
     /// The instance of `MusicPlayerManager` which handles media playback.
-    var musicPlayerManager = MusicPlayerManager()
+    let amPlayerManager = AMPlayerManager()
         
-    private let usersNetworkManager = UsersNetworkManager()
+    let usersNetworkManager = UsersNetworkManager()
+    let streamsNetworkManager = StreamsNetworkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -79,5 +80,19 @@ extension UIViewController {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
 }
 

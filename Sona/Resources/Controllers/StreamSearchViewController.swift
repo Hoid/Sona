@@ -19,6 +19,7 @@ class StreamSearchViewController : UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.streamsSearchBar.delegate = self
+        resetFilteredStreams()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,9 +69,45 @@ class StreamSearchViewController : UIViewController, UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let streams = self.streamSearchResultsTableVC?.streams
+        updateFilteredStreams(searchText: searchText)
         
-        self.streamSearchResultsTableVC?.filteredStreams = streams?.filter(byText: searchText) ?? [Stream]()
+    }
+    
+    @IBAction func streamSearchSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        if let searchText = streamsSearchBar.text {
+            updateFilteredStreams(searchText: searchText)
+        } else {
+            resetFilteredStreams()
+        }
+        
+    }
+    
+    private func updateFilteredStreams(searchText: String) {
+        
+        var streams: [Stream]
+        if streamSearchSegmentedControl.selectedSegmentIndex == 0 {
+            streams = self.streamSearchResultsTableVC?.allStreams ?? [Stream]()
+        } else {
+            streams = self.streamSearchResultsTableVC?.friendsStreams ?? [Stream]()
+        }
+        
+        self.streamSearchResultsTableVC?.filteredStreams = streams.filter(byText: searchText)
+        
+        self.streamSearchResultsTableVC?.tableView.reloadData()
+        
+    }
+    
+    private func resetFilteredStreams() {
+        
+        var streams: [Stream]
+        if streamSearchSegmentedControl.selectedSegmentIndex == 0 {
+            streams = self.streamSearchResultsTableVC?.allStreams ?? [Stream]()
+        } else {
+            streams = self.streamSearchResultsTableVC?.friendsStreams ?? [Stream]()
+        }
+        
+        self.streamSearchResultsTableVC?.filteredStreams = streams
         
         self.streamSearchResultsTableVC?.tableView.reloadData()
         

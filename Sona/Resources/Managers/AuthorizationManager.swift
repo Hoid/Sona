@@ -9,6 +9,7 @@ Abstract:
 import Foundation
 import StoreKit
 import MediaPlayer
+import FirebaseAuth
 
 @objcMembers
 class AuthorizationManager: NSObject {

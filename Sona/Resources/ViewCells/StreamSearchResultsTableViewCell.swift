@@ -22,7 +22,7 @@ class StreamSearchResultsTableViewCell : UITableViewCell {
         
         self.songTitleLabel.text = stream.song.title
         self.artistLabel.text = stream.song.artistName
-        self.usernameLabel.text = stream.host.username
+        self.usernameLabel.text = stream.host?.username
         
     }
     

@@ -12,15 +12,31 @@ class StreamPlayerViewController : UIViewController {
     
     var selectedStream: Stream?
     
-    var streamsManager = StreamsManager()
+    @IBOutlet weak var artworkUiImageView: UIImageView!
+    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var playPauseToggleButton: UIButton!
+    @IBOutlet weak var volumeSlider: UISlider!
     
     override func viewDidLoad() {
-        print("Artist of selected stream: \(self.selectedStream?.song.artistName ?? "no data")")
-        if self.streamsManager.isConnected {
-            self.streamsManager.sendMessage("{\"type\": \"message\", \"data\": {\"time\": 1472513071731,\"text\": \":]\",\"author\": \"iPhone Simulator\",\"color\": \"orange\"}}")
-        } else {
-            print("Stream not connected.")
+        guard let selectedStream = selectedStream else {
+            print("Could not unwrap selectedStream in StreamPlayerViewComntroller.viewDidLoad()")
+            return
         }
+        songNameLabel.text = selectedStream.song.title ?? "no title data"
+        artistNameLabel.text = selectedStream.song.artistName ?? "no artist data"
+        artworkUiImageView.load(url: URL(string: selectedStream.song.artwork?.url ?? "https://upload.wikimedia.org/wikipedia/commons/3/37/Empty_book.jpg")!)
+        appDelegate.amPlayerManager.beginPlayback(itemID: selectedStream.song.id)
     }
+    
+    @IBAction func playPauseToggled(_ sender: Any) {
+        print("playPauseToggleButton pressed")
+        appDelegate.amPlayerManager.togglePlayPause()
+    }
+    
+    @IBAction func volumeChanged(_ sender: UISlider) {
+        print("volume value changed")
+    }
+    
     
 }

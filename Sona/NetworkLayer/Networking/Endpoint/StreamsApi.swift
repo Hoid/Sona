@@ -2,134 +2,64 @@
 //  StreamsApi.swift
 //  Sona
 //
-//  Created by Tyler Cheek on 6/27/20.
+//  Created by Tyler Cheek on 7/6/20.
 //  Copyright © 2020 Tyler Cheek. All rights reserved.
 //
 
 import Foundation
-import Starscream
 
-class StreamsManager : WebSocketDelegate {
-    
-    var socket: WebSocket
-    var isConnected: Bool
-    var environment: NetworkEnvironment = .qa
-    
+public enum StreamsApi {
+    case getAllStreams
+    case getFriendsStreams(firebaseUID: String)
+}
+
+extension StreamsApi : EndPointType {
+
     var environmentBaseURL : String {
-        switch environment {
-        case .production:   return "localhost:8080/"
-        case .qa:           return "localhost:8080/"
-        case .staging:      return "localhost:8080/"
+        let networkManager = StreamsNetworkManager()
+        switch networkManager.environment {
+        case .production:   return "http://sona-server.us-east-1.elasticbeanstalk.com/"
+        case .qa:           return "http://localhost:5000/"
+        case .staging:      return "http://sona-server.us-east-1.elasticbeanstalk.com/"
         }
     }
     
-    init() {
-        isConnected = false
-        let url = URL(string: "ws://localhost:8080")!
-        let request = URLRequest(url: url)
-        socket = WebSocket(request: request)
-        socket.delegate = self
-        socket.connect()
-        isConnected = true
+    var baseURL: URL {
+        guard let url = URL(string: environmentBaseURL) else { fatalError("baseURL could not be configured.")}
+        return url
     }
-    
-    deinit {
-      socket.disconnect()
-      socket.delegate = nil
-    }
-    
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
-        switch event {
-        case .connected(let headers):
-            isConnected = true
-            print("Websocket is connected: \(headers)")
-        case .disconnected(let reason, let code):
-            isConnected = false
-            print("Websocket is disconnected: \(reason) with code: \(code)")
-        case .text(let string):
-            print("Received text: \(string)")
-        case .binary(let data):
-            print("Received data: \(data.count)")
-        case .ping(_):
-            break
-        case .pong(_):
-            break
-        case .viabilityChanged(_):
-            break
-        case .reconnectSuggested(_):
-            break
-        case .cancelled:
-            isConnected = false
-        case .error(let error):
-            isConnected = false
-            handleError(error)
-        }
-        
-    }
-    
-    func handleError(_ error: Error?) {
-        socket.disconnect()
-    }
-    
-    func sendMessage(_ message: String) {
-      socket.write(string: message)
-    }
-    
-    public func websocketDidConnect(_ socket: Starscream.WebSocket) {
-        print("Websocket connected.")
-    }
-    
-    public func websocketDidDisconnect(_ socket: Starscream.WebSocket, error: NSError?) {
-        print("Websocket disconnected. Error: \(String(describing: error))")
-    }
-    
-    /**
-    Example JSON structure:
-     {
-       "type": "message", // change this type to give a different structure
-       "data": {
-         "time": 1472513071731,
-         "text": ":]",
-         "author": "iPhone Simulator",
-         "color": "orange"
-       }
-     }
-     */
-    public func websocketDidReceiveMessage(_ socket: Starscream.WebSocket, text: String) {
-        guard let data = text.data(using: .utf16),
-          let jsonData = try? JSONSerialization.jsonObject(with: data),
-          let jsonDict = jsonData as? [String : Any],
-          let messageType = jsonDict["type"] as? String else {
-            return
-        }
 
-        if messageType == "message",
-          let messageData = jsonDict["data"] as? [String: Any],
-          let messageAuthor = messageData["author"] as? String,
-          let messageText = messageData["text"] as? String {
+    var path: String {
+        switch self {
+        case .getAllStreams:
+            return "streams"
+        case .getFriendsStreams(let firebaseUID):
+            return "streams/friends-of/\(firebaseUID)"
+        }
+    }
 
-          messageReceived(messageText, senderName: messageAuthor)
+    var httpMethod: HTTPMethod {
+        switch self {
+        case .getAllStreams:
+            return .get
+        case .getFriendsStreams(_):
+            return .get
         }
     }
-    
-    public func websocketDidReceiveData(_ socket: Starscream.WebSocket, data: Data) {
-        guard let jsonData = try? JSONSerialization.jsonObject(with: data),
-                let jsonDict = jsonData as? [String : Any],
-                let messageType = jsonDict["type"] as? String else {
-            print("Could not decode JSON data in websocketDidReceiveData(_:data:)")
-            return
-        }
 
-        if messageType == "message",
-                let messageData = jsonDict["data"] as? [String: Any],
-                let messageAuthor = messageData["author"] as? String,
-                let messageText = messageData["text"] as? String {
-            messageReceived(messageText, senderName: messageAuthor)
+    var task: HTTPTask {
+        switch self {
+        case .getAllStreams, .getFriendsStreams(_):
+            return .requestWithParametersAndHeaders(bodyParameters: nil, urlParameters: nil, headers: headers)
         }
     }
-    
-    private func messageReceived(_ messageText: String, senderName: String) {
-        
+
+    var headers: HTTPHeaders? {
+        let username = "admin"
+        let password = "passcode"
+        let loginData = String(format: "%@:%@", username, password).data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let authString = "Basic \(base64LoginString)"
+        return ["Authorization" : authString]
     }
-    
 }

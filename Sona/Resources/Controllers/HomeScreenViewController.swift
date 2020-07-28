@@ -23,36 +23,6 @@ class HomeScreenViewController: UIViewController {
         } catch {
             print("Could not get all users in HomeScreenViewController.viewDidLoad(). Error: \(error.localizedDescription)")
         }
-        self.showSpinner(onView: self.view)
-//        let usersNetworkManager = UsersNetworkManager()
-//        usersNetworkManager.getAllUsers { (userApiResponses, error) in
-//            if let error = error {
-//                print(error)
-//                self.removeSpinner()
-//                return
-//            }
-//            var users = [User]()
-//            if let userApiResponses = userApiResponses {
-//                userApiResponses.forEach { (userApiResponse) in
-//                    users.append(User(firebaseUID: userApiResponse.firebaseUID, email: userApiResponse.email, username: userApiResponse.username, name: userApiResponse.name, isPublic: userApiResponse.isPublic))
-//                }
-//                print("Users: \(users)")
-//            }
-//            self.removeSpinner()
-//        }
-        appDelegate.appleMusicNetworkManager.getAllSongsInLibrary { (appleMusicResponseRoot, error) in
-            if let error = error {
-                print(error)
-                self.removeSpinner()
-                return
-            }
-            guard let responseRoot = appleMusicResponseRoot else {
-                print("Could not unwrap appleMusicResponseRoot in HomeScreenViewController.viewDidLoad()")
-                return
-            }
-            print("First SongID: \(responseRoot.data?.first?.id ?? "no data")")
-            self.removeSpinner()
-        }
     }
     
     @IBAction func isPublicChanged(_ sender: UISwitch) {
