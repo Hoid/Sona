@@ -2,6 +2,8 @@
 
 Welcome to the documentation for Sona! This documentation will show you how to set up the repo for yourself, the methodology behind the code, and some of my hopes for the app's future.
 
+NOTE: This app is on the backburner until I can figure out a new direction for it. Spotify just came out with simultaneous music streaming within their app, so it might be a fool's errand to make that feature the core of the app.
+
 ## Setting up the project locally
 
 1. First, clone the repo using `git clone https://github.com/Hoid/Sona.git`
