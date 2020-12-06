@@ -2,7 +2,7 @@
 
 Welcome to the documentation for Sona! This documentation will show you how to set up the repo for yourself, the methodology behind the code, and some of my hopes for the app's future.
 
-NOTE: This app is on the backburner until I can figure out a new direction for it. Spotify just came out with simultaneous music streaming within their app, so it might be a fool's errand to make that feature the core of the app.
+NOTE: This app is on the backburner until I can figure out a new direction for it. Spotify just came out with simultaneous music streaming within their app, so it might be a fool's errand to make that feature the core of the app. As a result, the backend has been decommissioned for now, so running the app even on a physical device won't work. You can still peruse the code and run the app, though.
 
 ## Setting up the project locally
 
