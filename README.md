@@ -41,6 +41,8 @@ In the future, we will use websockets to make the listeners' AMP be updated near
 
 ## The Future of Sona
 
+Note: Spotify implemented the main feature of Sona, the ability to stream music synced up with other people, about a month after I started development on Sona. As a result, I've made the repo public and have paused development on it. If others want to help contribute to Sona I might be inspired to work on it again, but until then development is paused.
+
 ### Features
 
 - Allow users to join someone's "stream" at any time they are public and listen to whatever music they are listening to and leave at any time. 
